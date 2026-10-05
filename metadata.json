@@ -1,0 +1,6 @@
+{
+  "name": "Employee Skill Matrix",
+  "description": "Internal enterprise Employee Skill Matrix application for Evonence to track skill hierarchies, employee self-ratings, manager reviews, and resource allocation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

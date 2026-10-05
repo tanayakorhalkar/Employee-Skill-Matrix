@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" fill="none">
+  <!-- Evonence Official Logo (Dark/Black Background Variant matching Evonence-Logo-B&K_3.webp) -->
+  <g id="cloud-symbol">
+    <!-- Cloud Main Body with precision-matched silhouette -->
+    <path
+      d="M 195 85
+         C 230 85, 260 115, 275 145
+         C 305 155, 335 185, 335 225
+         C 335 265, 305 298, 260 300
+         L 135 300
+         C 75 300, 30 255, 30 195
+         C 30 142, 68 98, 120 90
+         C 140 86, 165 85, 195 85 Z"
+      fill="#00A0E9"
+    />
+
+    <!-- Fluid Inner Cyclone Spiral / Wave Cutout -->
+    <!-- Matches background dark color for authentic negative space -->
+    <path
+      d="M 125 300
+         C 85 300, 52 265, 52 220
+         C 52 165, 95 125, 150 125
+         C 198 125, 230 160, 230 205
+         C 230 245, 198 275, 160 275
+         C 130 275, 108 252, 108 225
+         C 108 202, 124 185, 145 185
+         C 162 185, 172 196, 172 210
+         C 172 222, 162 232, 150 232
+         C 142 232, 136 226, 136 220
+         C 136 215, 140 211, 145 211
+         C 148 211, 150 213, 150 215
+         C 150 217, 148 219, 146 219
+         C 144 219, 143 218, 143 216
+         C 143 214, 145 213, 147 213"
+      stroke="#000000"
+      stroke-width="18"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    />
+
+    <!-- Secondary Accent Arc under middle lobe -->
+    <path
+      d="M 195 240
+         C 215 240, 240 246, 252 258"
+      stroke="#000000"
+      stroke-width="12"
+      stroke-linecap="round"
+      fill="none"
+    />
+
+    <!-- Baseline extending from cloud rightward -->
+    <line
+      x1="250"
+      y1="300"
+      x2="975"
+      y2="300"
+      stroke="#00A0E9"
+      stroke-width="7"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- Wordmark: evonence (lowercase pure white) -->
+  <text
+    x="385"
+    y="235"
+    font-family="system-ui, -apple-system, 'Montserrat', 'Inter', 'Segoe UI', sans-serif"
+    font-size="120"
+    font-weight="700"
+    letter-spacing="-1.5"
+    fill="#FFFFFF"
+  >
+    evonence
+  </text>
+
+  <!-- Tagline: Simplify Cloud Adoption -->
+  <text
+    x="390"
+    y="365"
+    font-family="system-ui, -apple-system, 'Montserrat', 'Inter', 'Segoe UI', sans-serif"
+    font-size="52"
+    font-weight="600"
+    letter-spacing="0.5"
+    fill="#00A0E9"
+  >
+    Simplify Cloud Adoption
+  </text>
+</svg>

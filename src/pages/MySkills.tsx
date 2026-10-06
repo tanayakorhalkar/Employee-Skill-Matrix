@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Search, Filter, Award, CheckCircle2, Edit3, Plus, X } from 'lucide-react';
 import { Skill, EmployeeSkillJoined } from '../types/database';
 import { RatingBadge } from '../components/RatingBadge';
@@ -30,8 +30,27 @@ export const MySkills: React.FC<MySkillsProps> = ({ skills, mySkills, onSaveRati
     }
   });
 
-  // Extract unique categories
-  const categories = Array.from(new Set(skills.map((s) => s.category_name)));
+  // Extract unique categories synchronized dynamically to selectedType
+  const availableCategories = useMemo(() => {
+    let pool = skills;
+    if (selectedType !== 'ALL') {
+      pool = skills.filter((s) => s.skill_type === selectedType);
+    }
+    return Array.from(new Set(pool.map((s) => s.category_name))).sort();
+  }, [skills, selectedType]);
+
+  const handleTypeChange = (newType: string) => {
+    setSelectedType(newType);
+    // When changing type, if current category is not under the new type, reset to 'ALL'
+    if (selectedCategory !== 'ALL') {
+      const allowedCats = skills
+        .filter((s) => (newType === 'ALL' ? true : s.skill_type === newType))
+        .map((s) => s.category_name);
+      if (!allowedCats.includes(selectedCategory)) {
+        setSelectedCategory('ALL');
+      }
+    }
+  };
 
   // Filter skills
   const filteredSkills = skills.filter((s) => {
@@ -127,11 +146,11 @@ export const MySkills: React.FC<MySkillsProps> = ({ skills, mySkills, onSaveRati
             <Filter className="w-4 h-4 text-slate-400 shrink-0" />
             <select
               value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
+              onChange={(e) => handleTypeChange(e.target.value)}
               className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#1769AA]"
             >
               <option value="ALL">All Types</option>
-              <option value="Hard skills">Hard Skills</option>
+              <option value="Technical skills">Technical Skills</option>
               <option value="Soft skills">Soft Skills</option>
             </select>
 
@@ -140,8 +159,12 @@ export const MySkills: React.FC<MySkillsProps> = ({ skills, mySkills, onSaveRati
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#1769AA]"
             >
-              <option value="ALL">All Categories</option>
-              {categories.map((cat) => (
+              <option value="ALL">
+                {selectedType === 'ALL'
+                  ? 'All Categories'
+                  : `All ${selectedType === 'Technical skills' ? 'Technical' : 'Soft'} Categories`}
+              </option>
+              {availableCategories.map((cat) => (
                 <option key={cat} value={cat}>
                   {cat}
                 </option>
@@ -153,16 +176,20 @@ export const MySkills: React.FC<MySkillsProps> = ({ skills, mySkills, onSaveRati
 
       {/* Hierarchical Skill Groups */}
       <div className="space-y-6">
-        {Object.entries(groupedSkills).map(([skillType, catMap]) => (
-          <div key={skillType} className="space-y-4">
-            <div className="flex items-center gap-2 pb-1 border-b-2 border-slate-200">
-              <div
-                className={`w-2.5 h-2.5 rounded-full ${
-                  skillType === 'Hard skills' ? 'bg-[#1769AA]' : 'bg-[#20A36A]'
-                }`}
-              />
-              <h3 className="text-base font-extrabold text-[#0B3A5B] tracking-tight">{skillType}</h3>
-            </div>
+        {Object.entries(groupedSkills).map(([skillType, catMap]) => {
+          const displayType = skillType === 'Hard skills' ? 'Technical Skills' : skillType;
+          return (
+            <div key={skillType} className="space-y-4">
+              <div className="flex items-center gap-2 pb-1 border-b-2 border-slate-200">
+                <div
+                  className={`w-2.5 h-2.5 rounded-full ${
+                    skillType === 'Technical skills' || skillType === 'Hard skills'
+                      ? 'bg-[#1769AA]'
+                      : 'bg-[#20A36A]'
+                  }`}
+                />
+                <h3 className="text-base font-extrabold text-[#0B3A5B] tracking-tight">{displayType}</h3>
+              </div>
 
             {Object.entries(catMap).map(([catName, skillList]) => (
               <div key={catName} className="bg-white rounded-xl p-5 border border-slate-200 shadow-xs">
@@ -248,8 +275,9 @@ export const MySkills: React.FC<MySkillsProps> = ({ skills, mySkills, onSaveRati
               </div>
             ))}
           </div>
-        ))}
-      </div>
+        );
+      })}
+    </div>
 
       {/* Rating & Justification Modal */}
       {editingSkill && (
@@ -277,7 +305,7 @@ export const MySkills: React.FC<MySkillsProps> = ({ skills, mySkills, onSaveRati
             <form onSubmit={handleSave} className="space-y-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Self-Rating Proficiency (1 to 5)
+                  Self-Rating Proficiency (0.5 to 5.0)
                 </label>
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <RatingInput value={ratingVal} onChange={setRatingVal} />

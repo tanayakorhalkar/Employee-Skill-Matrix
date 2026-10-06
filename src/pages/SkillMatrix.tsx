@@ -32,8 +32,26 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({
   const [allocationSkillId, setAllocationSkillId] = useState<number | 'ALL'>('ALL');
   const [allocationMinRating, setAllocationMinRating] = useState<number>(3);
 
-  // Categories
-  const categories = useMemo(() => Array.from(new Set(skills.map((s) => s.category_name))), [skills]);
+  // Dynamic Categories synchronized to selectedSkillType
+  const availableCategories = useMemo(() => {
+    let pool = skills;
+    if (selectedSkillType !== 'ALL') {
+      pool = skills.filter((s) => s.skill_type === selectedSkillType);
+    }
+    return Array.from(new Set(pool.map((s) => s.category_name))).sort();
+  }, [skills, selectedSkillType]);
+
+  const handleTypeChange = (newType: string) => {
+    setSelectedSkillType(newType);
+    if (selectedCategory !== 'ALL') {
+      const allowedCats = skills
+        .filter((s) => (newType === 'ALL' ? true : s.skill_type === newType))
+        .map((s) => s.category_name);
+      if (!allowedCats.includes(selectedCategory)) {
+        setSelectedCategory('ALL');
+      }
+    }
+  };
 
   // Lookup map: `${emp_id}_${skill_id}` -> EmployeeSkillJoined
   const matrixMap = useMemo(() => {
@@ -143,11 +161,11 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({
           <div>
             <select
               value={selectedSkillType}
-              onChange={(e) => setSelectedSkillType(e.target.value)}
+              onChange={(e) => handleTypeChange(e.target.value)}
               className="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#1769AA]"
             >
               <option value="ALL">All Skill Types</option>
-              <option value="Hard skills">Hard Skills</option>
+              <option value="Technical skills">Technical Skills</option>
               <option value="Soft skills">Soft Skills</option>
             </select>
           </div>
@@ -158,8 +176,12 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#1769AA]"
             >
-              <option value="ALL">All Categories</option>
-              {categories.map((c) => (
+              <option value="ALL">
+                {selectedSkillType === 'ALL'
+                  ? 'All Categories'
+                  : `All ${selectedSkillType === 'Technical skills' ? 'Technical' : 'Soft'} Categories`}
+              </option>
+              {availableCategories.map((c) => (
                 <option key={c} value={c}>
                   {c}
                 </option>
@@ -174,9 +196,12 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({
               className="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#1769AA]"
             >
               <option value="0">Min Rating: Any</option>
-              <option value="3">Min Rating: ★3 (Intermediate+)</option>
-              <option value="4">Min Rating: ★4 (Advanced+)</option>
-              <option value="5">Min Rating: ★5 (Expert Only)</option>
+              <option value="2.5">Min Rating: ★2.5+ (Basic to Interm)</option>
+              <option value="3">Min Rating: ★3.0 (Intermediate+)</option>
+              <option value="3.5">Min Rating: ★3.5+ (Solid Delivery)</option>
+              <option value="4">Min Rating: ★4.0 (Advanced+)</option>
+              <option value="4.5">Min Rating: ★4.5+ (Lead / Senior)</option>
+              <option value="5">Min Rating: ★5.0 (Expert Only)</option>
             </select>
           </div>
         </div>
@@ -215,9 +240,12 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({
                 onChange={(e) => setAllocationMinRating(Number(e.target.value))}
                 className="bg-white border border-blue-300 rounded px-2 py-1 text-xs text-slate-800"
               >
-                <option value="3">Level 3+ (Intermediate)</option>
-                <option value="4">Level 4+ (Advanced)</option>
-                <option value="5">Level 5 (Expert)</option>
+                <option value="2.5">Level 2.5+ (Foundational)</option>
+                <option value="3">Level 3.0+ (Intermediate)</option>
+                <option value="3.5">Level 3.5+ (Competent Delivery)</option>
+                <option value="4">Level 4.0+ (Advanced)</option>
+                <option value="4.5">Level 4.5+ (Lead)</option>
+                <option value="5">Level 5.0 (Expert)</option>
               </select>
 
               {allocationSkillId !== 'ALL' && (
@@ -333,7 +361,7 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({
                                 <>
                                   <span className="flex items-center gap-0.5">
                                     <span>★</span>
-                                    <span>{rating}</span>
+                                    <span>{rating % 1 === 0 ? rating : rating.toFixed(1)}</span>
                                   </span>
                                   <span className="text-[9px] font-medium opacity-80 truncate max-w-[80px]">
                                     {getProficiencyLabel(rating)}

@@ -313,7 +313,7 @@ export const SkillReview: React.FC<SkillReviewProps> = ({
               {actionTarget.action === 'EDIT' && (
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Manager Evaluated Rating (1–5)
+                    Manager Evaluated Rating (0.5–5.0)
                   </label>
                   <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
                     <RatingInput value={editedRating} onChange={setEditedRating} />

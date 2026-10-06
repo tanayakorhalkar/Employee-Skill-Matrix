@@ -26,7 +26,7 @@ export type SafeEmployee = Omit<Employee, 'Login_password'>;
 
 export interface Skill {
   skill_id: number;
-  skill_type: 'Hard skills' | 'Soft skills';
+  skill_type: 'Technical skills' | 'Soft skills' | 'Hard skills';
   category_name: string;
   category_id: number;
   skillname: string;

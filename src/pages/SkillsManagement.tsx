@@ -6,7 +6,7 @@ interface SkillsManagementProps {
   skills: Skill[];
   onRefresh: () => void;
   onCreateSkill: (data: {
-    skill_type: 'Hard skills' | 'Soft skills';
+    skill_type: 'Technical skills' | 'Soft skills';
     category_name: string;
     category_id: number;
     skillname: string;
@@ -14,7 +14,7 @@ interface SkillsManagementProps {
   onUpdateSkill: (
     skill_id: number,
     data: {
-      skill_type?: 'Hard skills' | 'Soft skills';
+      skill_type?: 'Technical skills' | 'Soft skills';
       category_name?: string;
       category_id?: number;
       skillname?: string;
@@ -37,7 +37,7 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
   const [editingSkill, setEditingSkill] = useState<Skill | null>(null);
 
   // Form states
-  const [skillType, setSkillType] = useState<'Hard skills' | 'Soft skills'>('Hard skills');
+  const [skillType, setSkillType] = useState<'Technical skills' | 'Soft skills'>('Technical skills');
   const [categoryName, setCategoryName] = useState('');
   const [categoryId, setCategoryId] = useState<number>(101);
   const [skillName, setSkillName] = useState('');
@@ -58,7 +58,7 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
   });
 
   const handleOpenCreate = () => {
-    setSkillType('Hard skills');
+    setSkillType('Technical skills');
     setCategoryName('Cloud & Infrastructure');
     setCategoryId(103);
     setSkillName('');
@@ -67,7 +67,7 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
 
   const handleOpenEdit = (s: Skill) => {
     setEditingSkill(s);
-    setSkillType(s.skill_type);
+    setSkillType(s.skill_type === 'Hard skills' ? 'Technical skills' : (s.skill_type as any));
     setCategoryName(s.category_name);
     setCategoryId(s.category_id);
     setSkillName(s.skillname);
@@ -178,7 +178,7 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
               className="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#1769AA]"
             >
               <option value="ALL">All Skill Types</option>
-              <option value="Hard skills">Hard Skills</option>
+              <option value="Technical skills">Technical Skills</option>
               <option value="Soft skills">Soft Skills</option>
             </select>
           </div>
@@ -211,12 +211,12 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
                   <td className="p-4">
                     <span
                       className={`px-2 py-0.5 rounded text-[11px] font-semibold ${
-                        skill.skill_type === 'Hard skills'
+                        skill.skill_type === 'Technical skills' || skill.skill_type === 'Hard skills'
                           ? 'bg-blue-50 text-blue-800 border border-blue-200'
                           : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                       }`}
                     >
-                      {skill.skill_type}
+                      {skill.skill_type === 'Hard skills' ? 'Technical skills' : skill.skill_type}
                     </span>
                   </td>
                   <td className="p-4 font-medium text-slate-700">{skill.category_name}</td>
@@ -290,7 +290,7 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
                   onChange={(e) => setSkillType(e.target.value as any)}
                   className="w-full p-2 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#1769AA]"
                 >
-                  <option value="Hard skills">Hard skills</option>
+                  <option value="Technical skills">Technical skills</option>
                   <option value="Soft skills">Soft skills</option>
                 </select>
               </div>

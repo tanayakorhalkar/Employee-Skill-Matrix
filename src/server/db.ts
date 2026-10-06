@@ -36,6 +36,38 @@ class DatabaseStore {
       try {
         const raw = fs.readFileSync(DB_FILE, 'utf-8');
         this.data = JSON.parse(raw);
+
+        // Ensure Tanaya Korhalkar exists as Super Admin
+        if (!this.data.Employee.some(e => e.Login_userid.toLowerCase() === 'tanaya')) {
+          const adminHash = bcrypt.hashSync('Admin@123', 10);
+          const now = new Date().toISOString();
+          this.data.Employee.push({
+            emp_id: 7,
+            fName: 'Tanaya',
+            lName: 'Korhalkar',
+            Login_userid: 'tanaya',
+            Login_password: adminHash,
+            is_active: true,
+            created_on: '2026-01-10T09:00:00.000Z',
+            updated_on: now,
+            last_logged_in: now,
+            roles: 'SUPER_ADMIN',
+          });
+          this.save();
+        }
+
+        // Migrate any 'Hard skills' to 'Technical skills'
+        let hasMigrated = false;
+        this.data.Skills.forEach(s => {
+          if (s.skill_type === 'Hard skills') {
+            s.skill_type = 'Technical skills';
+            hasMigrated = true;
+          }
+        });
+        if (hasMigrated) {
+          this.save();
+        }
+
         this.updateAutoIds();
         return;
       } catch {
@@ -71,6 +103,18 @@ class DatabaseStore {
         fName: 'Evonence',
         lName: 'Admin',
         Login_userid: 'admin',
+        Login_password: adminHash,
+        is_active: true,
+        created_on: '2026-01-10T09:00:00.000Z',
+        updated_on: now,
+        last_logged_in: now,
+        roles: 'SUPER_ADMIN',
+      },
+      {
+        emp_id: 7,
+        fName: 'Tanaya',
+        lName: 'Korhalkar',
+        Login_userid: 'tanaya',
         Login_password: adminHash,
         is_active: true,
         created_on: '2026-01-10T09:00:00.000Z',
@@ -141,26 +185,26 @@ class DatabaseStore {
     ];
 
     const skills: Skill[] = [
-      // Hard Skills - Programming Languages (cat 101)
-      { skill_id: 1, skill_type: 'Hard skills', category_name: 'Programming Languages', category_id: 101, skillname: 'Python', skill_description: now },
-      { skill_id: 2, skill_type: 'Hard skills', category_name: 'Programming Languages', category_id: 101, skillname: 'Java', skill_description: now },
-      { skill_id: 3, skill_type: 'Hard skills', category_name: 'Programming Languages', category_id: 101, skillname: 'TypeScript', skill_description: now },
-      { skill_id: 4, skill_type: 'Hard skills', category_name: 'Programming Languages', category_id: 101, skillname: 'Go', skill_description: now },
+      // Technical Skills - Programming Languages (cat 101)
+      { skill_id: 1, skill_type: 'Technical skills', category_name: 'Programming Languages', category_id: 101, skillname: 'Python', skill_description: now },
+      { skill_id: 2, skill_type: 'Technical skills', category_name: 'Programming Languages', category_id: 101, skillname: 'Java', skill_description: now },
+      { skill_id: 3, skill_type: 'Technical skills', category_name: 'Programming Languages', category_id: 101, skillname: 'TypeScript', skill_description: now },
+      { skill_id: 4, skill_type: 'Technical skills', category_name: 'Programming Languages', category_id: 101, skillname: 'Go', skill_description: now },
 
-      // Hard Skills - Web & Frontend (cat 102)
-      { skill_id: 5, skill_type: 'Hard skills', category_name: 'Web Development', category_id: 102, skillname: 'React', skill_description: now },
-      { skill_id: 6, skill_type: 'Hard skills', category_name: 'Web Development', category_id: 102, skillname: 'Next.js', skill_description: now },
-      { skill_id: 7, skill_type: 'Hard skills', category_name: 'Web Development', category_id: 102, skillname: 'Tailwind CSS', skill_description: now },
+      // Technical Skills - Web & Frontend (cat 102)
+      { skill_id: 5, skill_type: 'Technical skills', category_name: 'Web Development', category_id: 102, skillname: 'React', skill_description: now },
+      { skill_id: 6, skill_type: 'Technical skills', category_name: 'Web Development', category_id: 102, skillname: 'Next.js', skill_description: now },
+      { skill_id: 7, skill_type: 'Technical skills', category_name: 'Web Development', category_id: 102, skillname: 'Tailwind CSS', skill_description: now },
 
-      // Hard Skills - Cloud & Infrastructure (cat 103)
-      { skill_id: 8, skill_type: 'Hard skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Google Cloud Platform (GCP)', skill_description: now },
-      { skill_id: 9, skill_type: 'Hard skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Docker & Containers', skill_description: now },
-      { skill_id: 10, skill_type: 'Hard skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Kubernetes (GKE)', skill_description: now },
-      { skill_id: 11, skill_type: 'Hard skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Terraform', skill_description: now },
+      // Technical Skills - Cloud & Infrastructure (cat 103)
+      { skill_id: 8, skill_type: 'Technical skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Google Cloud Platform (GCP)', skill_description: now },
+      { skill_id: 9, skill_type: 'Technical skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Docker & Containers', skill_description: now },
+      { skill_id: 10, skill_type: 'Technical skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Kubernetes (GKE)', skill_description: now },
+      { skill_id: 11, skill_type: 'Technical skills', category_name: 'Cloud & Infrastructure', category_id: 103, skillname: 'Terraform', skill_description: now },
 
-      // Hard Skills - Databases & Data (cat 104)
-      { skill_id: 12, skill_type: 'Hard skills', category_name: 'Databases', category_id: 104, skillname: 'PostgreSQL', skill_description: now },
-      { skill_id: 13, skill_type: 'Hard skills', category_name: 'Databases', category_id: 104, skillname: 'Redis', skill_description: now },
+      // Technical Skills - Databases & Data (cat 104)
+      { skill_id: 12, skill_type: 'Technical skills', category_name: 'Databases', category_id: 104, skillname: 'PostgreSQL', skill_description: now },
+      { skill_id: 13, skill_type: 'Technical skills', category_name: 'Databases', category_id: 104, skillname: 'Redis', skill_description: now },
 
       // Soft Skills - Communication (cat 201)
       { skill_id: 14, skill_type: 'Soft skills', category_name: 'Communication', category_id: 201, skillname: 'Client Presentation', skill_description: now },
@@ -250,7 +294,31 @@ class DatabaseStore {
   }
 
   public getEmployeeByLogin(login_userid: string): Employee | null {
-    return this.data.Employee.find(e => e.Login_userid.toLowerCase() === login_userid.toLowerCase()) || null;
+    if (!login_userid) return null;
+    const query = login_userid.trim().toLowerCase();
+
+    return (
+      this.data.Employee.find(e => {
+        const u = e.Login_userid.toLowerCase();
+        // Exact User ID match
+        if (u === query) return true;
+        // e.g. "admin@evonence.com" matching "admin"
+        if (`${u}@evonence.com` === query) return true;
+        // e.g. "john.doe@evonence.com"
+        const fullEmail = `${e.fName.toLowerCase()}.${e.lName.toLowerCase()}@evonence.com`;
+        if (fullEmail === query) return true;
+        // e.g. "john.doe"
+        if (`${e.fName.toLowerCase()}.${e.lName.toLowerCase()}` === query) return true;
+        // Email prefix match
+        if (query.includes('@')) {
+          const prefix = query.split('@')[0];
+          if (prefix === u) return true;
+          if (prefix === `${e.fName.toLowerCase()}.${e.lName.toLowerCase()}`) return true;
+          if (prefix === e.fName.toLowerCase()) return true;
+        }
+        return false;
+      }) || null
+    );
   }
 
   public createEmployee(params: {
@@ -362,15 +430,16 @@ class DatabaseStore {
   }
 
   public createSkill(params: {
-    skill_type: 'Hard skills' | 'Soft skills';
+    skill_type: 'Technical skills' | 'Soft skills' | 'Hard skills';
     category_name: string;
     category_id: number;
     skillname: string;
   }): Skill {
     const now = new Date().toISOString();
+    const normalizedType = params.skill_type === 'Hard skills' ? 'Technical skills' : params.skill_type;
     const newSkill: Skill = {
       skill_id: this.skillAutoId++,
-      skill_type: params.skill_type,
+      skill_type: normalizedType,
       category_name: params.category_name.trim(),
       category_id: params.category_id,
       skillname: params.skillname.trim(),
@@ -383,7 +452,7 @@ class DatabaseStore {
   }
 
   public updateSkill(skill_id: number, params: {
-    skill_type?: 'Hard skills' | 'Soft skills';
+    skill_type?: 'Technical skills' | 'Soft skills' | 'Hard skills';
     category_name?: string;
     category_id?: number;
     skillname?: string;
@@ -394,7 +463,9 @@ class DatabaseStore {
     }
 
     const current = this.data.Skills[index];
-    if (params.skill_type !== undefined) current.skill_type = params.skill_type;
+    if (params.skill_type !== undefined) {
+      current.skill_type = params.skill_type === 'Hard skills' ? 'Technical skills' : params.skill_type;
+    }
     if (params.category_name !== undefined) current.category_name = params.category_name.trim();
     if (params.category_id !== undefined) current.category_id = params.category_id;
     if (params.skillname !== undefined) current.skillname = params.skillname.trim();
@@ -461,8 +532,8 @@ class DatabaseStore {
     is_active?: boolean;
   }): EmployeeSkill {
     // Constraint Validation
-    if (params.self_rating < 1 || params.self_rating > 5) {
-      throw new Error('Validation Error: self_rating must be between 1 and 5 inclusive.');
+    if (params.self_rating < 0.5 || params.self_rating > 5) {
+      throw new Error('Validation Error: self_rating must be between 0.5 and 5 inclusive.');
     }
     if (!this.getEmployeeById(params.emp_id)) {
       throw new Error(`Foreign Key Error: Employee with ID ${params.emp_id} does not exist.`);
@@ -514,8 +585,8 @@ class DatabaseStore {
     const current = this.data.Employee_skills[index];
 
     if (params.self_rating !== undefined) {
-      if (params.self_rating < 1 || params.self_rating > 5) {
-        throw new Error('Validation Error: self_rating must be between 1 and 5 inclusive.');
+      if (params.self_rating < 0.5 || params.self_rating > 5) {
+        throw new Error('Validation Error: self_rating must be between 0.5 and 5 inclusive.');
       }
       current.self_rating = params.self_rating;
     }

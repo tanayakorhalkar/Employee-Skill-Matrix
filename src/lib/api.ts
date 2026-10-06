@@ -130,7 +130,7 @@ export const api = {
       return fetchWithAuth<Skill>(`/api/skills/${skill_id}`);
     },
     create: async (body: {
-      skill_type: 'Hard skills' | 'Soft skills';
+      skill_type: 'Technical skills' | 'Soft skills' | 'Hard skills';
       category_name: string;
       category_id: number;
       skillname: string;
@@ -143,7 +143,7 @@ export const api = {
     update: async (
       skill_id: number,
       body: {
-        skill_type?: 'Hard skills' | 'Soft skills';
+        skill_type?: 'Technical skills' | 'Soft skills' | 'Hard skills';
         category_name?: string;
         category_id?: number;
         skillname?: string;

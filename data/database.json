@@ -8,8 +8,8 @@
       "Login_password": "$2b$10$NCpH9NNjZkc9oGbXLnc.peCNNk/WQD5ZkJIALXH/itcr6aIgWR0xy",
       "is_active": true,
       "created_on": "2026-01-10T09:00:00.000Z",
-      "updated_on": "2026-10-05T07:09:51.448Z",
-      "last_logged_in": "2026-10-05T07:09:51.448Z",
+      "updated_on": "2026-10-06T17:29:42.861Z",
+      "last_logged_in": "2026-10-06T17:29:42.860Z",
       "roles": "SUPER_ADMIN"
     },
     {
@@ -20,8 +20,8 @@
       "Login_password": "$2b$10$zlKGU15VaUY1sr8vyy9HX.Yb2rn8YhRKnnXkH/fuiyMqdI5Kxprv6",
       "is_active": true,
       "created_on": "2026-01-15T09:00:00.000Z",
-      "updated_on": "2026-10-05T07:10:10.278Z",
-      "last_logged_in": "2026-10-05T07:10:10.278Z",
+      "updated_on": "2026-10-06T16:59:33.699Z",
+      "last_logged_in": "2026-10-06T16:59:33.699Z",
       "roles": "MANAGER"
     },
     {
@@ -32,8 +32,8 @@
       "Login_password": "$2b$10$m0oZtmSlOKpoeXHGwEmAPOu1D4d6PVV6I4vogzb8ELJHdhZcFgEzC",
       "is_active": true,
       "created_on": "2026-02-01T09:00:00.000Z",
-      "updated_on": "2026-10-05T07:10:20.918Z",
-      "last_logged_in": "2026-10-05T07:10:20.918Z",
+      "updated_on": "2026-10-06T16:59:33.551Z",
+      "last_logged_in": "2026-10-06T16:59:33.551Z",
       "roles": "EMPLOYEE"
     },
     {
@@ -44,8 +44,8 @@
       "Login_password": "$2b$10$m0oZtmSlOKpoeXHGwEmAPOu1D4d6PVV6I4vogzb8ELJHdhZcFgEzC",
       "is_active": true,
       "created_on": "2026-02-05T09:00:00.000Z",
-      "updated_on": "2026-10-05T07:09:48.869Z",
-      "last_logged_in": "2026-10-05T07:09:48.869Z",
+      "updated_on": "2026-10-06T17:07:25.603Z",
+      "last_logged_in": "2026-10-06T17:07:25.603Z",
       "roles": "EMPLOYEE"
     },
     {
@@ -71,12 +71,24 @@
       "updated_on": "2026-10-05T07:09:48.869Z",
       "last_logged_in": "2026-10-05T07:09:48.869Z",
       "roles": "EMPLOYEE"
+    },
+    {
+      "emp_id": 7,
+      "fName": "Tanaya",
+      "lName": "Korhalkar",
+      "Login_userid": "tanaya",
+      "Login_password": "$2b$10$BS9Dbxtin2oYUgiKrTlyp.Y2InLtEIhrxmbUt28BLh6A2S6t.vhZK",
+      "is_active": true,
+      "created_on": "2026-01-10T09:00:00.000Z",
+      "updated_on": "2026-10-06T16:48:09.833Z",
+      "last_logged_in": "2026-10-06T16:48:09.832Z",
+      "roles": "SUPER_ADMIN"
     }
   ],
   "Skills": [
     {
       "skill_id": 1,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Programming Languages",
       "category_id": 101,
       "skillname": "Python",
@@ -84,7 +96,7 @@
     },
     {
       "skill_id": 2,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Programming Languages",
       "category_id": 101,
       "skillname": "Java",
@@ -92,7 +104,7 @@
     },
     {
       "skill_id": 3,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Programming Languages",
       "category_id": 101,
       "skillname": "TypeScript",
@@ -100,7 +112,7 @@
     },
     {
       "skill_id": 4,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Programming Languages",
       "category_id": 101,
       "skillname": "Go",
@@ -108,7 +120,7 @@
     },
     {
       "skill_id": 5,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Web Development",
       "category_id": 102,
       "skillname": "React",
@@ -116,7 +128,7 @@
     },
     {
       "skill_id": 6,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Web Development",
       "category_id": 102,
       "skillname": "Next.js",
@@ -124,7 +136,7 @@
     },
     {
       "skill_id": 7,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Web Development",
       "category_id": 102,
       "skillname": "Tailwind CSS",
@@ -132,7 +144,7 @@
     },
     {
       "skill_id": 8,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Cloud & Infrastructure",
       "category_id": 103,
       "skillname": "Google Cloud Platform (GCP)",
@@ -140,7 +152,7 @@
     },
     {
       "skill_id": 9,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Cloud & Infrastructure",
       "category_id": 103,
       "skillname": "Docker & Containers",
@@ -148,7 +160,7 @@
     },
     {
       "skill_id": 10,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Cloud & Infrastructure",
       "category_id": 103,
       "skillname": "Kubernetes (GKE)",
@@ -156,7 +168,7 @@
     },
     {
       "skill_id": 11,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Cloud & Infrastructure",
       "category_id": 103,
       "skillname": "Terraform",
@@ -164,7 +176,7 @@
     },
     {
       "skill_id": 12,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Databases",
       "category_id": 104,
       "skillname": "PostgreSQL",
@@ -172,7 +184,7 @@
     },
     {
       "skill_id": 13,
-      "skill_type": "Hard skills",
+      "skill_type": "Technical skills",
       "category_name": "Databases",
       "category_id": 104,
       "skillname": "Redis",
@@ -409,6 +421,15 @@
       "comments": "[Approved by Sarah Connor on 10/5/2026, 7:10:10 AM] - Approved for backend rotation\nLearning Go microservices",
       "is_active": true,
       "add_update_timestamp": "2026-10-05T07:10:10.298Z"
+    },
+    {
+      "unique_id": 23,
+      "skill_id": 2,
+      "emp_id": 3,
+      "self_rating": 4.5,
+      "comments": "[Adjusted to 4.5/5 by Sarah Connor on 10/6/2026, 4:59:33 PM] - Note: Promoted to 4.5 based on recent demo\nTested with 3.5 decimal proficiency rating",
+      "is_active": true,
+      "add_update_timestamp": "2026-10-06T16:59:33.791Z"
     }
   ]
 }

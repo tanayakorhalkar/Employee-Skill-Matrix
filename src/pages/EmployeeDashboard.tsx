@@ -23,27 +23,19 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({
       ? Number((activeSkills.reduce((acc, curr) => acc + curr.self_rating, 0) / totalRated).toFixed(1))
       : 0;
 
-  const expertCount = activeSkills.filter((s) => s.self_rating === 5).length;
-  const advancedCount = activeSkills.filter((s) => s.self_rating === 4).length;
-  const intermediateCount = activeSkills.filter((s) => s.self_rating === 3).length;
+  const expertCount = activeSkills.filter((s) => s.self_rating >= 4.5).length;
+  const advancedCount = activeSkills.filter((s) => s.self_rating >= 3.5 && s.self_rating < 4.5).length;
+  const intermediateCount = activeSkills.filter((s) => s.self_rating >= 2.5 && s.self_rating < 3.5).length;
+  const basicCount = activeSkills.filter((s) => s.self_rating >= 1.5 && s.self_rating < 2.5).length;
+  const beginnerCount = activeSkills.filter((s) => s.self_rating < 1.5).length;
 
   // Rating distribution counts
   const dist = [
-    { level: 5, label: 'Expert', count: expertCount, color: 'bg-emerald-500' },
-    { level: 4, label: 'Advanced', count: advancedCount, color: 'bg-blue-600' },
-    { level: 3, label: 'Intermediate', count: intermediateCount, color: 'bg-indigo-500' },
-    {
-      level: 2,
-      label: 'Basic',
-      count: activeSkills.filter((s) => s.self_rating === 2).length,
-      color: 'bg-sky-400',
-    },
-    {
-      level: 1,
-      label: 'Beginner',
-      count: activeSkills.filter((s) => s.self_rating === 1).length,
-      color: 'bg-slate-400',
-    },
+    { level: 5, label: 'Expert (4.5–5.0)', count: expertCount, color: 'bg-emerald-500' },
+    { level: 4, label: 'Advanced (3.5–4.4)', count: advancedCount, color: 'bg-blue-600' },
+    { level: 3, label: 'Intermediate (2.5–3.4)', count: intermediateCount, color: 'bg-indigo-500' },
+    { level: 2, label: 'Basic (1.5–2.4)', count: basicCount, color: 'bg-sky-400' },
+    { level: 1, label: 'Beginner (0.5–1.4)', count: beginnerCount, color: 'bg-slate-400' },
   ];
 
   const recentUpdates = [...activeSkills]

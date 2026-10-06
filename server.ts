@@ -301,14 +301,15 @@ async function startServer() {
       return;
     }
 
-    if (!['Hard skills', 'Soft skills'].includes(skill_type)) {
-      res.status(400).json({ error: 'skill_type must be either "Hard skills" or "Soft skills".' });
+    const normalizedType = skill_type === 'Hard skills' ? 'Technical skills' : skill_type;
+    if (!['Technical skills', 'Soft skills'].includes(normalizedType)) {
+      res.status(400).json({ error: 'skill_type must be either "Technical skills" or "Soft skills".' });
       return;
     }
 
     try {
       const created = db.createSkill({
-        skill_type,
+        skill_type: normalizedType,
         category_name,
         category_id: Number(category_id),
         skillname,
@@ -328,10 +329,11 @@ async function startServer() {
     }
 
     const { skill_type, category_name, category_id, skillname } = req.body;
+    const normalizedType = skill_type === 'Hard skills' ? 'Technical skills' : skill_type;
 
     try {
       const updated = db.updateSkill(skillId, {
-        skill_type,
+        skill_type: normalizedType,
         category_name,
         category_id: category_id !== undefined ? Number(category_id) : undefined,
         skillname,
@@ -416,16 +418,17 @@ async function startServer() {
     }
 
     const ratingNum = Number(self_rating);
-    if (isNaN(ratingNum) || ratingNum < 1 || ratingNum > 5) {
-      res.status(400).json({ error: 'self_rating must be an integer between 1 and 5 inclusive.' });
+    if (isNaN(ratingNum) || ratingNum < 0.5 || ratingNum > 5) {
+      res.status(400).json({ error: 'self_rating must be between 1 and 5 (decimals allowed, e.g. 3.5).' });
       return;
     }
+    const cleanRating = Math.round(ratingNum * 10) / 10;
 
     try {
       const record = db.createOrUpdateEmployeeSkill({
         skill_id: Number(skill_id),
         emp_id: targetEmpId,
-        self_rating: ratingNum,
+        self_rating: cleanRating,
         comments: comments || null,
         is_active: is_active !== undefined ? Boolean(is_active) : true,
       });
@@ -461,11 +464,11 @@ async function startServer() {
     const updates: { self_rating?: number; comments?: string | null; is_active?: boolean } = {};
     if (self_rating !== undefined) {
       const r = Number(self_rating);
-      if (r < 1 || r > 5) {
-        res.status(400).json({ error: 'self_rating must be between 1 and 5 inclusive.' });
+      if (isNaN(r) || r < 0.5 || r > 5) {
+        res.status(400).json({ error: 'self_rating must be between 1 and 5 (decimals allowed).' });
         return;
       }
-      updates.self_rating = r;
+      updates.self_rating = Math.round(r * 10) / 10;
     }
     if (comments !== undefined) updates.comments = comments;
     if (is_active !== undefined) updates.is_active = Boolean(is_active);
@@ -499,11 +502,11 @@ async function startServer() {
     let newRating = existing.self_rating;
     if (action === 'EDIT' && reviewed_rating !== undefined) {
       const r = Number(reviewed_rating);
-      if (r < 1 || r > 5) {
-        res.status(400).json({ error: 'reviewed_rating must be between 1 and 5.' });
+      if (isNaN(r) || r < 0.5 || r > 5) {
+        res.status(400).json({ error: 'reviewed_rating must be between 1 and 5 (decimals allowed).' });
         return;
       }
-      newRating = r;
+      newRating = Math.round(r * 10) / 10;
     }
 
     let updatedComments = existing.comments || '';
@@ -570,7 +573,8 @@ async function startServer() {
 
       const ratingDist: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
       myRecords.forEach(r => {
-        ratingDist[r.self_rating] = (ratingDist[r.self_rating] || 0) + 1;
+        const bucket = Math.min(5, Math.max(1, Math.round(r.self_rating)));
+        ratingDist[bucket] = (ratingDist[bucket] || 0) + 1;
       });
 
       res.json({
@@ -592,7 +596,8 @@ async function startServer() {
     // Skill distribution
     const ratingDist: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
     allRecords.forEach(r => {
-      ratingDist[r.self_rating] = (ratingDist[r.self_rating] || 0) + 1;
+      const bucket = Math.min(5, Math.max(1, Math.round(r.self_rating)));
+      ratingDist[bucket] = (ratingDist[bucket] || 0) + 1;
     });
 
     // Top skills & gaps

@@ -5,6 +5,7 @@ import { Sidebar, Header, NavTab } from './components/Navigation';
 import { Login } from './pages/Login';
 import { EmployeeDashboard } from './pages/EmployeeDashboard';
 import { ManagerDashboard } from './pages/ManagerDashboard';
+import { SuperAdminDashboard } from './pages/SuperAdminDashboard';
 import { MySkills } from './pages/MySkills';
 import { SkillMatrix } from './pages/SkillMatrix';
 import { SkillReview } from './pages/SkillReview';
@@ -276,10 +277,21 @@ export default function App() {
             />
           )}
 
-          {currentTab === 'dashboard' && (currentUser.roles === 'MANAGER' || currentUser.roles === 'SUPER_ADMIN') && (
+          {currentTab === 'dashboard' && currentUser.roles === 'MANAGER' && (
             <ManagerDashboard
               currentUser={currentUser}
               dashboardStats={dashboardStats}
+              onNavigate={setCurrentTab}
+            />
+          )}
+
+          {currentTab === 'dashboard' && currentUser.roles === 'SUPER_ADMIN' && (
+            <SuperAdminDashboard
+              currentUser={currentUser}
+              dashboardStats={dashboardStats}
+              employees={employees}
+              skills={skills}
+              employeeSkills={employeeSkills}
               onNavigate={setCurrentTab}
             />
           )}

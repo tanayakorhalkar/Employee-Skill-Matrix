@@ -65,10 +65,14 @@ export const SkillCatalog: React.FC<SkillCatalogProps> = ({ skills }) => {
             <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
               <div
                 className={`w-3 h-3 rounded-full ${
-                  skillType === 'Hard skills' ? 'bg-[#1769AA]' : 'bg-[#20A36A]'
+                  skillType === 'Technical skills' || skillType === 'Hard skills'
+                    ? 'bg-[#1769AA]'
+                    : 'bg-[#20A36A]'
                 }`}
               />
-              <h3 className="font-extrabold text-base text-[#0B3A5B]">{skillType}</h3>
+              <h3 className="font-extrabold text-base text-[#0B3A5B]">
+                {skillType === 'Hard skills' ? 'Technical skills' : skillType}
+              </h3>
               <span className="text-xs text-slate-400 ml-auto">
                 {Object.values(catMap).reduce((sum, list) => sum + list.length, 0)} skills
               </span>

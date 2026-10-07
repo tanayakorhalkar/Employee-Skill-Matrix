@@ -1,4 +1,6 @@
-from datetime import datetime, timezone
+import json
+from pathlib import Path
+
 from app.database.session import SessionLocal, engine, Base
 from app.models.employee import Employee
 from app.models.skill import Skills
@@ -10,112 +12,140 @@ def seed_database():
     db = SessionLocal()
 
     try:
-        # Check if already seeded
-        if db.query(Employee).count() > 0:
-            print("Database already contains employees. Skipping seed.")
-            return
+        print("Ensuring initial PostgreSQL data is available...")
 
-        print("Seeding initial database data...")
-
-        # 1. Employees
-        admin = Employee(
-            fName="Evonence",
-            lName="Admin",
-            Login_userid="admin",
-            Login_password=get_password_hash("Admin@123"),
-            is_active=True,
-            roles="SUPER_ADMIN",
-        )
-        manager = Employee(
-            fName="Sarah",
-            lName="Connor",
-            Login_userid="manager",
-            Login_password=get_password_hash("Manager@123"),
-            is_active=True,
-            roles="MANAGER",
-        )
-        emp1 = Employee(
-            fName="John",
-            lName="Doe",
-            Login_userid="emp1",
-            Login_password=get_password_hash("Emp@123"),
-            is_active=True,
-            roles="EMPLOYEE",
-        )
-        emp2 = Employee(
-            fName="Jane",
-            lName="Smith",
-            Login_userid="emp2",
-            Login_password=get_password_hash("Emp@123"),
-            is_active=True,
-            roles="EMPLOYEE",
-        )
-        emp3 = Employee(
-            fName="Alex",
-            lName="Rivera",
-            Login_userid="emp3",
-            Login_password=get_password_hash("Emp@123"),
-            is_active=True,
-            roles="EMPLOYEE",
-        )
-
-        db.add_all([admin, manager, emp1, emp2, emp3])
-        db.commit()
-
-        # 2. Skills
-        now = datetime.now(timezone.utc)
-        skills = [
-            # Hard Skills - Programming
-            Skills(skill_type="Hard skills", category_name="Programming Languages", category_id=101, skillname="Python", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Programming Languages", category_id=101, skillname="Java", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Programming Languages", category_id=101, skillname="TypeScript", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Programming Languages", category_id=101, skillname="Go", skill_description=now),
-            # Web Development
-            Skills(skill_type="Hard skills", category_name="Web Development", category_id=102, skillname="React", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Web Development", category_id=102, skillname="Next.js", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Web Development", category_id=102, skillname="Tailwind CSS", skill_description=now),
-            # Cloud
-            Skills(skill_type="Hard skills", category_name="Cloud & Infrastructure", category_id=103, skillname="Google Cloud Platform (GCP)", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Cloud & Infrastructure", category_id=103, skillname="Docker & Containers", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Cloud & Infrastructure", category_id=103, skillname="Kubernetes (GKE)", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Cloud & Infrastructure", category_id=103, skillname="Terraform", skill_description=now),
-            # Databases
-            Skills(skill_type="Hard skills", category_name="Databases", category_id=104, skillname="PostgreSQL", skill_description=now),
-            Skills(skill_type="Hard skills", category_name="Databases", category_id=104, skillname="Redis", skill_description=now),
-            # Soft Skills
-            Skills(skill_type="Soft skills", category_name="Communication", category_id=201, skillname="Client Presentation", skill_description=now),
-            Skills(skill_type="Soft skills", category_name="Communication", category_id=201, skillname="Technical Writing", skill_description=now),
-            Skills(skill_type="Soft skills", category_name="Leadership & Delivery", category_id=202, skillname="Project Planning & Scoping", skill_description=now),
-            Skills(skill_type="Soft skills", category_name="Leadership & Delivery", category_id=202, skillname="Agile Mentorship", skill_description=now),
+        # Add sample accounts that may be missing from an older seeded database.
+        initial_employees = [
+            ("admin", "Evonence", "Admin", "SUPER_ADMIN", "Admin@123"),
+            ("superadmin@evonence.com", "Tanaya", "Korhalkar", "SUPER_ADMIN", "Admin@123"),
+            ("manager", "Sanket", "Dantkale", "MANAGER", "Manager@123"),
+            ("tanaya.korhalkar@evonence.com", "Tanaya", "Korhalkar", "EMPLOYEE", "Emp@123"),
+            ("ayush.joshi@evonence.com", "Ayush", "Joshi", "EMPLOYEE", "Emp@123"),
+            ("siddhesh.bhor@evonence.com", "Siddhesh", "Bhor", "EMPLOYEE", "Emp@123"),
+            ("vivek.dabhade@evonence.com", "Vivek", "Dabhade", "EMPLOYEE", "Emp@123"),
         ]
-        db.add_all(skills)
+        legacy_employee_logins = {
+            "emp1": "tanaya.korhalkar@evonence.com",
+            "emp2": "ayush.joshi@evonence.com",
+            "emp3": "siddhesh.bhor@evonence.com",
+            "emp4": "vivek.dabhade@evonence.com",
+        }
+        for old_login, email_login in legacy_employee_logins.items():
+            legacy_employee = db.query(Employee).filter(Employee.Login_userid == old_login).first()
+            email_owner = db.query(Employee).filter(Employee.Login_userid == email_login).first()
+            if legacy_employee and email_owner and legacy_employee.emp_id != email_owner.emp_id:
+                raise ValueError(
+                    f"Cannot migrate '{old_login}' to '{email_login}': that email is already assigned "
+                    "to another employee."
+                )
+            if legacy_employee:
+                legacy_employee.Login_userid = email_login
+
+        legacy_superadmin = db.query(Employee).filter(Employee.Login_userid == "tanaya").first()
+        superadmin_email = "superadmin@evonence.com"
+        email_owner = db.query(Employee).filter(Employee.Login_userid == superadmin_email).first()
+        if legacy_superadmin and email_owner and legacy_superadmin.emp_id != email_owner.emp_id:
+            raise ValueError(
+                f"Cannot migrate 'tanaya' to '{superadmin_email}': that email is already assigned "
+                "to another employee."
+            )
+        if legacy_superadmin:
+            legacy_superadmin.Login_userid = superadmin_email
+
+        for login_id, first_name, last_name, role, password in initial_employees:
+            existing = db.query(Employee).filter(Employee.Login_userid == login_id).first()
+            if existing is None:
+                db.add(Employee(
+                    fName=first_name,
+                    lName=last_name,
+                    Login_userid=login_id,
+                    Login_password=get_password_hash(password),
+                    is_active=True,
+                    roles=role,
+                ))
         db.commit()
+
+        employees_by_login = {
+            employee.Login_userid: employee
+            for employee in db.query(Employee).all()
+        }
+
+        # Preserve existing IDs for employee ratings while refreshing the catalog data.
+        catalog_path = Path(__file__).resolve().parents[2] / "data" / "centralized_skills.json"
+        with catalog_path.open(encoding="utf-8-sig") as catalog_file:
+            catalog = json.load(catalog_file)
+
+        existing_skills = {
+            skill.skillname.casefold(): skill
+            for skill in db.query(Skills).all()
+        }
+        legacy_names = {
+            "google cloud platform": "Google Cloud Platform (GCP)",
+            "docker": "Docker & Containers",
+            "kubernetes": "Kubernetes (GKE)",
+        }
+        inserted = 0
+        updated = 0
+        for item in catalog:
+            name_key = item["skillname"].casefold()
+            skill = existing_skills.get(name_key)
+            if skill is None and name_key in legacy_names:
+                skill = existing_skills.get(legacy_names[name_key].casefold())
+
+            if skill is None:
+                skill = Skills(skillname=item["skillname"])
+                db.add(skill)
+                existing_skills[name_key] = skill
+                inserted += 1
+            else:
+                updated += 1
+
+            skill.skill_type = item["skill_type"]
+            skill.category_name = item["category_name"]
+            skill.category_id = item["category_id"]
+            skill.skillname = item["skillname"]
+            skill.skill_description = item["skill_description"]
+
+        db.commit()
+        print(
+            f"Skill catalog synchronized: {len(catalog)} unique workbook skills, "
+            f"{inserted} added, {updated} updated. Existing non-catalog skills and ratings were retained."
+        )
 
         # 3. Employee Skills Ratings
         ratings = [
-            # John Doe (emp1)
-            EmployeeSkill(emp_id=emp1.emp_id, skill_id=1, self_rating=5, comments="5+ years backend Python development. [Approved by Manager]", is_active=True),
-            EmployeeSkill(emp_id=emp1.emp_id, skill_id=3, self_rating=4, comments="Built full-stack TypeScript services.", is_active=True),
-            EmployeeSkill(emp_id=emp1.emp_id, skill_id=5, self_rating=4, comments="Solid experience with React components.", is_active=True),
-            EmployeeSkill(emp_id=emp1.emp_id, skill_id=8, self_rating=4, comments="GCP Cloud Associate certified.", is_active=True),
-            EmployeeSkill(emp_id=emp1.emp_id, skill_id=12, self_rating=4, comments="PostgreSQL performance tuning.", is_active=True),
-
-            # Jane Smith (emp2)
-            EmployeeSkill(emp_id=emp2.emp_id, skill_id=3, self_rating=5, comments="Lead TypeScript architect. [Approved by Manager]", is_active=True),
-            EmployeeSkill(emp_id=emp2.emp_id, skill_id=5, self_rating=5, comments="React expert and component designer.", is_active=True),
-            EmployeeSkill(emp_id=emp2.emp_id, skill_id=6, self_rating=4, comments="Extensive SSR and Next.js experience.", is_active=True),
-            EmployeeSkill(emp_id=emp2.emp_id, skill_id=7, self_rating=5, comments="Mastery in accessible Tailwind styling.", is_active=True),
-
-            # Alex Rivera (emp3)
-            EmployeeSkill(emp_id=emp3.emp_id, skill_id=8, self_rating=5, comments="GCP Professional Cloud Architect. [Approved by Manager]", is_active=True),
-            EmployeeSkill(emp_id=emp3.emp_id, skill_id=9, self_rating=5, comments="Production containerization and CI/CD.", is_active=True),
-            EmployeeSkill(emp_id=emp3.emp_id, skill_id=10, self_rating=4, comments="Kubernetes cluster operator.", is_active=True),
-            EmployeeSkill(emp_id=emp3.emp_id, skill_id=11, self_rating=4, comments="Terraform infrastructure as code.", is_active=True),
+            ("tanaya.korhalkar@evonence.com", "Python", 5, "5+ years backend Python development. [Approved by Manager]"),
+            ("tanaya.korhalkar@evonence.com", "TypeScript", 4, "Built full-stack TypeScript services."),
+            ("tanaya.korhalkar@evonence.com", "React", 4, "Solid experience with React components."),
+            ("tanaya.korhalkar@evonence.com", "Google Cloud Platform", 4, "GCP Cloud Associate certified."),
+            ("tanaya.korhalkar@evonence.com", "PostgreSQL", 4, "PostgreSQL performance tuning."),
+            ("ayush.joshi@evonence.com", "TypeScript", 5, "Lead TypeScript architect. [Approved by Manager]"),
+            ("ayush.joshi@evonence.com", "React", 5, "React expert and component designer."),
+            ("ayush.joshi@evonence.com", "Next.js", 4, "Extensive SSR and Next.js experience."),
+            ("ayush.joshi@evonence.com", "Tailwind CSS", 5, "Mastery in accessible Tailwind styling."),
+            ("siddhesh.bhor@evonence.com", "Google Cloud Platform", 5, "GCP Professional Cloud Architect. [Approved by Manager]"),
+            ("siddhesh.bhor@evonence.com", "Docker", 5, "Production containerization and CI/CD."),
+            ("siddhesh.bhor@evonence.com", "Kubernetes", 4, "Kubernetes cluster operator."),
+            ("siddhesh.bhor@evonence.com", "Terraform", 4, "Terraform infrastructure as code."),
         ]
-        db.add_all(ratings)
-        db.commit()
+        if db.query(EmployeeSkill).count() == 0:
+            skills_by_name = {
+                skill.skillname: skill.skill_id
+                for skill in db.query(Skills).all()
+            }
+            db.add_all([
+                EmployeeSkill(
+                    emp_id=employees_by_login[login_id].emp_id,
+                    skill_id=skills_by_name[skill_name],
+                    self_rating=rating,
+                    comments=comments,
+                    is_active=True,
+                )
+                for login_id, skill_name, rating, comments in ratings
+            ])
+            db.commit()
 
-        print("Database seeded successfully!")
+        print("Initial employees, skills, and ratings are available.")
     finally:
         db.close()
 

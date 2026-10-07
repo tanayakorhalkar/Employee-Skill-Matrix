@@ -13,15 +13,19 @@ class Settings(BaseSettings):
     POSTGRES_SERVER: str = os.getenv("POSTGRES_SERVER", "localhost")
     POSTGRES_USER: str = os.getenv("POSTGRES_USER", "postgres")
     POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "postgres")
-    POSTGRES_DB: str = os.getenv("POSTGRES_DB", "skillmatrix")
+    POSTGRES_DB: str = os.getenv("POSTGRES_DB", "employeeskilllmatrix")
     POSTGRES_PORT: str = os.getenv("POSTGRES_PORT", "5432")
 
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
         override = os.getenv("DATABASE_URL")
         if override:
+            if override.startswith("postgresql://"):
+                return override.replace("postgresql://", "postgresql+psycopg2://", 1)
+            if override.startswith("postgres://"):
+                return override.replace("postgres://", "postgresql+psycopg2://", 1)
             return override
-        return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+        return f"postgresql+psycopg2://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
 
     class Config:
         case_sensitive = True

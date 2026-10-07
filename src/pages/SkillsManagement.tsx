@@ -196,7 +196,7 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
                 <th className="p-4">Skill Type</th>
                 <th className="p-4">Category Name</th>
                 <th className="p-4">Category ID</th>
-                <th className="p-4">Created/Updated (TIMESTAMP)</th>
+                <th className="p-4">Description</th>
                 <th className="p-4 text-right">Actions</th>
               </tr>
             </thead>
@@ -221,8 +221,8 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
                   </td>
                   <td className="p-4 font-medium text-slate-700">{skill.category_name}</td>
                   <td className="p-4 font-mono text-slate-500">{skill.category_id}</td>
-                  <td className="p-4 text-slate-400 font-mono text-[11px]">
-                    {new Date(skill.skill_description).toLocaleString()}
+                  <td className="p-4 text-slate-600 max-w-xs" title={skill.skill_description}>
+                    <span className="block truncate">{skill.skill_description}</span>
                   </td>
                   <td className="p-4 text-right">
                     <div className="flex items-center justify-end gap-1.5">
@@ -320,8 +320,7 @@ export const SkillsManagement: React.FC<SkillsManagementProps> = ({
               </div>
 
               <div className="text-[11px] text-slate-400 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
-                Note: Per the required schema, <code>skill_description</code> is automatically recorded as
-                a TIMESTAMP timestamp on add/update.
+                Skill descriptions are loaded from the centralized catalog.
               </div>
 
               <div className="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">

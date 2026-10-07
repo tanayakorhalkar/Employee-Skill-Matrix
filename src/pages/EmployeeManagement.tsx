@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, UserPlus, Edit2, Trash2, CheckCircle2, Shield, User, X } from 'lucide-react';
 import { SafeEmployee, UserRole } from '../types/database';
+import { EmployeeAvatar } from '../components/EmployeeAvatar';
 
 interface EmployeeManagementProps {
   employees: SafeEmployee[];
@@ -230,10 +231,12 @@ export const EmployeeManagement: React.FC<EmployeeManagementProps> = ({
                   <td className="p-4 font-mono text-slate-500 font-semibold">#{emp.emp_id}</td>
                   <td className="p-4">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-full bg-[#1769AA] text-white flex items-center justify-center font-bold text-xs shrink-0">
-                        {emp.fName[0]}
-                        {emp.lName[0]}
-                      </div>
+                      <EmployeeAvatar
+                        firstName={emp.fName}
+                        lastName={emp.lName}
+                        profilePicture={emp.profile_picture}
+                        className="w-8 h-8 text-xs shrink-0"
+                      />
                       <div>
                         <div className="font-semibold text-slate-900">
                           {emp.fName} {emp.lName}

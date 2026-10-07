@@ -1,7 +1,15 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.routers import auth_router, employees_router, skills_router, employee_skills_router
+from app.routers import (
+    auth_router,
+    employees_router,
+    skills_router,
+    employee_skills_router,
+    stats_router,
+    system_router,
+)
 from app.database.session import engine, Base
 
 # Create tables in metadata
@@ -27,6 +35,12 @@ app.include_router(auth_router, prefix=settings.API_V1_STR)
 app.include_router(employees_router, prefix=settings.API_V1_STR)
 app.include_router(skills_router, prefix=settings.API_V1_STR)
 app.include_router(employee_skills_router, prefix=settings.API_V1_STR)
+app.include_router(stats_router, prefix=settings.API_V1_STR)
+app.include_router(system_router, prefix=settings.API_V1_STR)
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/docs")
 
 @app.get("/health")
 def health_check():

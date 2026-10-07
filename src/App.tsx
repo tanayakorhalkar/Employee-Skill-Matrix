@@ -93,6 +93,15 @@ export default function App() {
     setCurrentTab('dashboard');
   };
 
+  const handleRegisterRequest = async (data: {
+    fName: string;
+    lName: string;
+    email: string;
+    password: string;
+  }) => {
+    await api.auth.register(data);
+  };
+
   const handleLogout = async () => {
     await api.auth.logout();
     setCurrentUser(null);
@@ -120,6 +129,18 @@ export default function App() {
       action,
       manager_notes: notes,
       reviewed_rating: reviewedRating,
+    });
+    await loadData();
+  };
+
+  const handleBatchReview = async (
+    empId: number,
+    action: 'APPROVE' | 'REJECT',
+    notes?: string
+  ) => {
+    await api.employeeSkills.reviewBatch(empId, {
+      action,
+      manager_notes: notes,
     });
     await loadData();
   };
@@ -157,7 +178,12 @@ export default function App() {
   };
 
   // Profile Update
-  const handleUpdateProfile = async (data: any) => {
+  const handleUpdateProfile = async (data: {
+    fName?: string;
+    lName?: string;
+    password?: string;
+    profile_picture?: string | null;
+  }) => {
     if (!currentUser) return;
     const updated = await api.employees.update(currentUser.emp_id, data);
     setCurrentUser(updated);
@@ -186,7 +212,12 @@ export default function App() {
   }
 
   if (!currentUser) {
-    return <Login onLoginSuccess={setCurrentUser} onLoginRequest={handleLoginRequest} />;
+    return (
+      <Login
+        onLoginRequest={handleLoginRequest}
+        onRegisterRequest={handleRegisterRequest}
+      />
+    );
   }
 
   const getPageTitle = (tab: NavTab) => {
@@ -317,9 +348,8 @@ export default function App() {
             <SkillReview
               records={employeeSkills}
               employees={employees}
-              skills={skills}
-              currentUser={currentUser}
               onReviewAction={handleReviewAction}
+              onBatchReview={handleBatchReview}
             />
           )}
 

@@ -14,6 +14,7 @@ import {
   UserCheck,
 } from 'lucide-react';
 import { EvonenceLogo } from './EvonenceLogo';
+import { EmployeeAvatar } from './EmployeeAvatar';
 import { SafeEmployee, UserRole } from '../types/database';
 
 export type NavTab =
@@ -211,10 +212,12 @@ export const Header: React.FC<{
         )}
 
         <div className="flex items-center gap-3 pl-4 border-l border-slate-200">
-          <div className="w-8 h-8 rounded-full bg-[#1769AA] text-white flex items-center justify-center font-bold text-xs uppercase shadow-xs">
-            {currentUser.fName[0]}
-            {currentUser.lName[0]}
-          </div>
+          <EmployeeAvatar
+            firstName={currentUser.fName}
+            lastName={currentUser.lName}
+            profilePicture={currentUser.profile_picture}
+            className="w-8 h-8 text-xs shadow-xs shrink-0"
+          />
           <div className="text-right hidden sm:block">
             <div className="text-xs font-semibold text-slate-800">
               {currentUser.fName} {currentUser.lName}

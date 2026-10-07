@@ -46,21 +46,44 @@ async function fetchWithAuth<T>(url: string, options: RequestInit = {}): Promise
   return data as T;
 }
 
+function normalizeSkill(skill: Skill): Skill {
+  return skill.skill_type === 'Hard skills'
+    ? { ...skill, skill_type: 'Technical skills' }
+    : skill;
+}
+
+function toBackendSkill<T extends { skill_type?: Skill['skill_type'] }>(skill: T): T {
+  return skill.skill_type === 'Technical skills'
+    ? { ...skill, skill_type: 'Hard skills' }
+    : skill;
+}
+
 export const api = {
   auth: {
     login: async (Login_userid: string, password: string): Promise<{ token: string; user: SafeEmployee }> => {
-      const data = await fetchWithAuth<{ token: string; user: SafeEmployee }>('/api/auth/login', {
+      const data = await fetchWithAuth<{ access_token: string; user: SafeEmployee }>('/api/auth/login', {
         method: 'POST',
         body: JSON.stringify({ Login_userid, password }),
       });
-      tokenStorage.setToken(data.token);
+      tokenStorage.setToken(data.access_token);
       tokenStorage.setUser(data.user);
-      return data;
+      return { token: data.access_token, user: data.user };
+    },
+    register: async (body: {
+      fName: string;
+      lName: string;
+      email: string;
+      password: string;
+    }): Promise<SafeEmployee> => {
+      return fetchWithAuth<SafeEmployee>('/api/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(body),
+      });
     },
     me: async (): Promise<SafeEmployee> => {
-      const data = await fetchWithAuth<{ user: SafeEmployee }>('/api/auth/me');
-      tokenStorage.setUser(data.user);
-      return data.user;
+      const user = await fetchWithAuth<SafeEmployee>('/api/auth/me');
+      tokenStorage.setUser(user);
+      return user;
     },
     logout: async (): Promise<void> => {
       try {
@@ -104,6 +127,7 @@ export const api = {
         password?: string;
         roles?: UserRole;
         is_active?: boolean;
+        profile_picture?: string | null;
       }
     ): Promise<SafeEmployee> => {
       return fetchWithAuth<SafeEmployee>(`/api/employees/${emp_id}`, {
@@ -122,9 +146,15 @@ export const api = {
     list: async (params?: { search?: string; skill_type?: string; category_name?: string }): Promise<Skill[]> => {
       const query = new URLSearchParams();
       if (params?.search) query.append('search', params.search);
-      if (params?.skill_type) query.append('skill_type', params.skill_type);
+      if (params?.skill_type) {
+        query.append(
+          'skill_type',
+          params.skill_type === 'Technical skills' ? 'Hard skills' : params.skill_type
+        );
+      }
       if (params?.category_name) query.append('category_name', params.category_name);
-      return fetchWithAuth<Skill[]>(`/api/skills?${query.toString()}`);
+      const skills = await fetchWithAuth<Skill[]>(`/api/skills?${query.toString()}`);
+      return skills.map(normalizeSkill);
     },
     get: async (skill_id: number): Promise<Skill> => {
       return fetchWithAuth<Skill>(`/api/skills/${skill_id}`);
@@ -137,7 +167,7 @@ export const api = {
     }): Promise<Skill> => {
       return fetchWithAuth<Skill>('/api/skills', {
         method: 'POST',
-        body: JSON.stringify(body),
+        body: JSON.stringify(toBackendSkill(body)),
       });
     },
     update: async (
@@ -151,7 +181,7 @@ export const api = {
     ): Promise<Skill> => {
       return fetchWithAuth<Skill>(`/api/skills/${skill_id}`, {
         method: 'PUT',
-        body: JSON.stringify(body),
+        body: JSON.stringify(toBackendSkill(body)),
       });
     },
     delete: async (skill_id: number): Promise<{ message: string }> => {
@@ -200,9 +230,21 @@ export const api = {
         manager_notes?: string;
         reviewed_rating?: number;
       }
-    ): Promise<{ message: string; record: EmployeeSkillJoined }> => {
-      return fetchWithAuth<{ message: string; record: EmployeeSkillJoined }>(
+    ): Promise<{ message: string; unique_id: number; is_active: boolean; self_rating: number; comments: string | null }> => {
+      return fetchWithAuth<{ message: string; unique_id: number; is_active: boolean; self_rating: number; comments: string | null }>(
         `/api/employee-skills/${unique_id}/review`,
+        {
+          method: 'POST',
+          body: JSON.stringify(body),
+        }
+      );
+    },
+    reviewBatch: async (
+      emp_id: number,
+      body: { action: 'APPROVE' | 'REJECT'; manager_notes?: string }
+    ): Promise<{ message: string; emp_id: number; action: 'APPROVE' | 'REJECT'; count: number; unique_ids: number[] }> => {
+      return fetchWithAuth(
+        `/api/employee-skills/${emp_id}/review-batch`,
         {
           method: 'POST',
           body: JSON.stringify(body),

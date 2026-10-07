@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from sqlalchemy import Column, Integer, String, Boolean, DateTime
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, Text
 from sqlalchemy.orm import relationship
 from app.database.session import Base
 
@@ -16,6 +16,7 @@ class Employee(Base):
     updated_on = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc), nullable=False)
     last_logged_in = Column(DateTime, nullable=True)
     roles = Column(String(50), nullable=False)  # SUPER_ADMIN, MANAGER, EMPLOYEE
+    profile_picture = Column(Text, nullable=True)
 
     # Relationships (within the 3 tables)
     skills = relationship("EmployeeSkill", back_populates="employee", cascade="all, delete-orphan")

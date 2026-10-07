@@ -1,3 +1,6 @@
+import base64
+
+
 def test_super_admin_create_employee(client):
     # Login as admin
     login_res = client.post("/api/auth/login", json={"Login_userid": "admin", "password": "Admin@123"})
@@ -49,3 +52,56 @@ def test_list_employees(client):
     res = client.get("/api/employees", headers=headers)
     assert res.status_code == 200
     assert len(res.json()) >= 3
+
+
+def test_employee_can_save_and_remove_own_profile_picture(client):
+    login = client.post(
+        "/api/auth/login",
+        json={"Login_userid": "emp1", "password": "Emp@123"},
+    )
+    headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
+    picture = "data:image/png;base64," + base64.b64encode(b"\x89PNG\r\n\x1a\nimage-data").decode()
+
+    save_response = client.put(
+        f"/api/employees/{login.json()['user']['emp_id']}",
+        headers=headers,
+        json={"profile_picture": picture},
+    )
+    assert save_response.status_code == 200
+    assert save_response.json()["profile_picture"] == picture
+
+    me_response = client.get("/api/auth/me", headers=headers)
+    assert me_response.status_code == 200
+    assert me_response.json()["profile_picture"] == picture
+
+    remove_response = client.put(
+        f"/api/employees/{login.json()['user']['emp_id']}",
+        headers=headers,
+        json={"profile_picture": None},
+    )
+    assert remove_response.status_code == 200
+    assert remove_response.json()["profile_picture"] is None
+
+
+def test_profile_picture_rejects_unsupported_and_oversized_images(client):
+    login = client.post(
+        "/api/auth/login",
+        json={"Login_userid": "emp1", "password": "Emp@123"},
+    )
+    headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
+    endpoint = f"/api/employees/{login.json()['user']['emp_id']}"
+
+    unsupported = client.put(
+        endpoint,
+        headers=headers,
+        json={"profile_picture": "data:image/svg+xml;base64,PHN2Zz4="},
+    )
+    oversized_data = b"\x89PNG\r\n\x1a\n" + b"x" * (2 * 1024 * 1024)
+    oversized = client.put(
+        endpoint,
+        headers=headers,
+        json={"profile_picture": "data:image/png;base64," + base64.b64encode(oversized_data).decode()},
+    )
+
+    assert unsupported.status_code == 422
+    assert oversized.status_code == 422

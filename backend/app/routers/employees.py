@@ -102,6 +102,8 @@ def update_employee(
         employee.lName = emp_in.lName
     if emp_in.password:
         employee.Login_password = get_password_hash(emp_in.password)
+    if "profile_picture" in emp_in.model_fields_set:
+        employee.profile_picture = emp_in.profile_picture
 
     if is_admin:
         if emp_in.Login_userid and emp_in.Login_userid != employee.Login_userid:

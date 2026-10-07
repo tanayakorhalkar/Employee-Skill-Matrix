@@ -1,0 +1,2095 @@
+[
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Java",
+    "skill_description": "High-level, object-oriented programming language designed for platform-independent enterprise and backend application development."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "JVM",
+    "skill_description": "Virtual machine that executes Java bytecode across different hardware and operating systems."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "JDK",
+    "skill_description": "Software development kit providing tools, compiler, and libraries necessary for developing Java applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "JRE",
+    "skill_description": "Runtime environment providing libraries and components required to run compiled Java programs."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Spring",
+    "skill_description": "Comprehensive enterprise Java framework providing dependency injection and modular components for building web applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Spring Boot",
+    "skill_description": "Extension of Spring that streamlines application setup and configuration for standalone, production-ready microservices."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Hibernate",
+    "skill_description": "Object-relational mapping framework for Java that simplifies database interactions and data persistence."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Python",
+    "skill_description": "Versatile, high-level programming language widely used in web development, data science, automation, and artificial intelligence."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Django",
+    "skill_description": "High-level Python web framework that encourages rapid development and clean, pragmatic design."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Flask",
+    "skill_description": "Lightweight WSGI web application framework in Python designed for quick prototyping and microservices."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "FastAPI",
+    "skill_description": "Modern, high-performance web framework for building APIs with Python based on standard type hints."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "C#",
+    "skill_description": "Modern, type-safe, object-oriented language developed by Microsoft for building applications on the .NET platform."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": ".NET",
+    "skill_description": "Cross-platform, open-source developer framework for building a wide variety of modern applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "CLR",
+    "skill_description": "Execution engine of the .NET framework that handles memory management, exception handling, and code execution."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "ASP.NET Core",
+    "skill_description": "Cross-platform, high-performance framework for building modern, cloud-enabled web applications and APIs."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "C++",
+    "skill_description": "High-performance programming language offering low-level memory manipulation for systems, game engines, and performance-critical software."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Go",
+    "skill_description": "Statically typed, compiled language created by Google that emphasizes simplicity, concurrency, and scalable systems."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Rust",
+    "skill_description": "Systems programming language focused on memory safety, concurrency, and blazing-fast performance without a garbage collector."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "PHP",
+    "skill_description": "Popular server-side scripting language primarily used for dynamic web development and content management systems."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "JavaScript",
+    "skill_description": "Dynamic programming language essential for interactive web pages and versatile full-stack application development."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "TypeScript",
+    "skill_description": "Strongly typed superset of JavaScript that adds static types to catch errors early in large-scale applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "React",
+    "skill_description": "Declarative JavaScript library for building component-based, high-performance user interfaces."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Angular",
+    "skill_description": "Component-based TypeScript framework for building scalable enterprise-grade single-page web applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Vue.js",
+    "skill_description": "Progressive JavaScript framework for building reactive and flexible user interfaces."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Node.js",
+    "skill_description": "Asynchronous, event-driven JavaScript runtime built on Chrome's V8 engine for server-side network applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Express.js",
+    "skill_description": "Minimalist and flexible Node.js web application framework providing essential features for web and API development."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "HTML",
+    "skill_description": "Standard markup language used to structure and display content across the World Wide Web."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "CSS",
+    "skill_description": "Style sheet language used for describing the visual presentation, layout, and responsiveness of web pages."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Tailwind CSS",
+    "skill_description": "Utility-first CSS framework enabling rapid, highly customizable UI styling directly within markup."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Bootstrap",
+    "skill_description": "Front-end open-source toolkit for designing responsive, mobile-first websites using prebuilt CSS components."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "SQL",
+    "skill_description": "Standardized query language designed for managing and querying structured data in relational databases."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "PostgreSQL",
+    "skill_description": "Advanced, open-source object-relational database system known for reliability, extensibility, and SQL compliance."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "MySQL",
+    "skill_description": "Widely used open-source relational database management system powering web applications and enterprise systems."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "SQL Server",
+    "skill_description": "Enterprise relational database management system developed by Microsoft for data storage, analysis, and processing."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Oracle Database",
+    "skill_description": "Multi-model enterprise database management system engineered for high-availability transaction processing and analytics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "MongoDB",
+    "skill_description": "Leading document-oriented NoSQL database that stores data in flexible, JSON-like documents."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Redis",
+    "skill_description": "In-memory key-value data store used as a distributed cache, message broker, and fast database."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Database Design",
+    "skill_description": "Process of structuring data models, tables, relationships, and constraints to ensure data integrity and performance."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Data Modeling",
+    "skill_description": "Technique of defining and organizing data requirements and relationships to support business information systems."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Google Cloud Platform",
+    "skill_description": "Suite of cloud computing services by Google offering scalable infrastructure, computing, data, and machine learning tools."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Compute Engine",
+    "skill_description": "Infrastructure as a Service component of Google Cloud providing secure, customizable virtual machines."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Run",
+    "skill_description": "Fully managed serverless platform on GCP that deploys and scales containerized applications automatically."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Storage",
+    "skill_description": "Scalable, highly durable object storage service on Google Cloud for storing unstructured data."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Cloud SQL",
+    "skill_description": "Fully managed relational database service for MySQL, PostgreSQL, and SQL Server on Google Cloud Platform."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "BigQuery",
+    "skill_description": "Fully managed, serverless enterprise data warehouse on Google Cloud designed for rapid SQL analytics across massive datasets."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Vertex AI",
+    "skill_description": "Unified machine learning platform on GCP for training, deploying, and managing generative AI and ML models."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Pub/Sub",
+    "skill_description": "Asynchronous, serverless messaging service on Google Cloud that decouples services producing and processing events."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Functions",
+    "skill_description": "Serverless execution environment for building and connecting event-driven applications on Google Cloud."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "VPC",
+    "skill_description": "Virtual Private Cloud providing isolated, customizable private networking for cloud resources and services."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "IAM",
+    "skill_description": "Framework of policies and technologies ensuring that the right users and services have proper access to resources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Monitoring",
+    "skill_description": "Observability service on GCP that collects metrics, monitors infrastructure health, and manages alerting."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Logging",
+    "skill_description": "Fully managed real-time log management and analysis service for applications running on Google Cloud."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "GKE",
+    "skill_description": "Managed Kubernetes service on Google Cloud Platform for deploying, managing, and scaling containerized workloads."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Artifact Registry",
+    "skill_description": "Universal package and container image repository service for storing build artifacts on Google Cloud."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "AWS",
+    "skill_description": "Comprehensive cloud computing platform offered by Amazon providing on-demand computing power, storage, and networking."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "EC2",
+    "skill_description": "Web service providing resizable and secure virtual computing capacity in the Amazon Web Services cloud."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "S3",
+    "skill_description": "Highly scalable, high-speed object storage service on AWS designed for data backup, archiving, and analytics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "RDS",
+    "skill_description": "Managed relational database service on AWS that simplifies database setup, operation, and scaling."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Lambda",
+    "skill_description": "Serverless compute service on AWS that runs code in response to events and automatically manages computing resources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Microsoft Azure",
+    "skill_description": "Cloud computing service by Microsoft for building, testing, deploying, and managing applications across global datacenters."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Kubernetes",
+    "skill_description": "Open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Docker",
+    "skill_description": "Containerization platform that packages applications and their dependencies together to ensure consistent execution across environments."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Terraform",
+    "skill_description": "Open-source Infrastructure as Code software tool enabling declarative provisioning and management of cloud resources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Git",
+    "skill_description": "Distributed version control system designed to track changes in source code and coordinate work among software developers."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "CI/CD",
+    "skill_description": "Combined practice of continuous integration and continuous delivery to automate the software build, test, and release cycle."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "GitHub Actions",
+    "skill_description": "CI/CD platform integrated into GitHub that automates build, test, and deployment pipelines directly from repositories."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Jenkins",
+    "skill_description": "Open-source automation server enabling developers to build, test, and deploy software reliably through automated pipelines."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Linux",
+    "skill_description": "Open-source, Unix-like operating system kernel that serves as the foundation for enterprise servers, containers, and cloud systems."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Ansible",
+    "skill_description": "Open-source IT automation tool that automates configuration management, cloud provisioning, and software deployment."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Data Analysis",
+    "skill_description": "Systematic process of inspecting, cleaning, transforming, and modeling data to discover actionable business insights."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Pandas",
+    "skill_description": "Python library offering high-performance data structures and analytical tools for manipulating structured data tables."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "NumPy",
+    "skill_description": "Core Python library for scientific computing supporting powerful multi-dimensional arrays and mathematical functions."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Matplotlib",
+    "skill_description": "Comprehensive Python visualization library for creating static, animated, and interactive plots and charts."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Seaborn",
+    "skill_description": "Python data visualization library based on Matplotlib that provides a high-level interface for attractive statistical graphics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Power BI",
+    "skill_description": "Interactive business analytics tool by Microsoft for transforming raw data into coherent, visually immersive dashboards and reports."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Power Query",
+    "skill_description": "Data transformation and data preparation engine that enables users to discover, connect, and clean data across sources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "DAX",
+    "skill_description": "Formula expression language used in Power BI, Analysis Services, and Power Pivot for advanced data modeling calculations."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Microsoft Excel",
+    "skill_description": "Spreadsheet application used globally for data entry, complex calculations, graphing tools, and tabular data analysis."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "ETL",
+    "skill_description": "Data integration process involving extracting data from sources, transforming it into suitable format, and loading it into storage."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Data Warehousing",
+    "skill_description": "Practice of collecting, storing, and organizing structured data from various sources into a central repository for analytical reporting."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Data Pipelines",
+    "skill_description": "Automated workflows that transport raw data from multiple origins to destinations for processing, transformation, and storage."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Dataflow",
+    "skill_description": "Fully managed Google Cloud streaming and batch data processing service built on Apache Beam."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Machine Learning",
+    "skill_description": "Branch of artificial intelligence focused on building systems that learn patterns from data to make predictions."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Deep Learning",
+    "skill_description": "Subset of machine learning utilizing multi-layered neural networks to model intricate patterns in complex data."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "NLP",
+    "skill_description": "Natural Language Processing field enabling computers to understand, interpret, and generate human language text and speech."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Computer Vision",
+    "skill_description": "AI discipline that trains computers to interpret and extract meaningful information from digital images and videos."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Generative AI",
+    "skill_description": "Artificial intelligence models capable of generating novel content such as text, images, code, or audio based on learned patterns."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Large Language Models",
+    "skill_description": "Advanced deep learning architectures trained on vast textual datasets to understand and generate natural language."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Prompt Engineering",
+    "skill_description": "Practice of structuring and optimizing input queries to effectively guide AI models toward accurate and useful outputs."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "RAG",
+    "skill_description": "Retrieval-Augmented Generation architecture that enhances AI outputs by grounding responses with external authoritative knowledge sources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "AI Agents",
+    "skill_description": "Autonomous software entities powered by AI that perceive their environment, make decisions, and execute actions toward goals."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Scikit-learn",
+    "skill_description": "Open-source Python library featuring efficient tools for predictive data analysis and classic machine learning algorithms."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "TensorFlow",
+    "skill_description": "End-to-end open-source machine learning platform developed by Google for building and deploying complex neural network models."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "PyTorch",
+    "skill_description": "Open-source deep learning framework developed by Meta optimized for flexible research, experimentation, and production deployment."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Statistics",
+    "skill_description": "Mathematical discipline dealing with collection, analysis, interpretation, and presentation of numerical data."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "IAM Security",
+    "skill_description": "Principles and protocols focused on managing digital identities and controlling privileged access across computing resources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Network Security",
+    "skill_description": "Set of practices and technologies designed to protect network infrastructure from unauthorized access, misuse, or disruption."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "OWASP",
+    "skill_description": "Worldwide non-profit organization dedicated to improving software security through standards, guidelines, and top vulnerability lists."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "OAuth 2.0",
+    "skill_description": "Standard open authorization framework enabling third-party applications to obtain limited access to user accounts."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Encryption",
+    "skill_description": "Method of encoding information into cipher format to ensure data confidentiality both in transit and at rest."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Security Monitoring",
+    "skill_description": "Continuous process of tracking systems and network traffic to detect and mitigate potential security threats."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Incident Response",
+    "skill_description": "Structured methodology for identifying, investigating, containing, and remediating cybersecurity breaches and incidents."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "TCP/IP",
+    "skill_description": "Fundamental suite of communication protocols used to interconnect network devices across the internet."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "DNS",
+    "skill_description": "Domain Name System that translates human-readable domain names into numerical IP addresses required for network routing."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "HTTP/HTTPS",
+    "skill_description": "Application layer protocols that define how messages are formatted and transmitted across the web securely and efficiently."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "Load Balancing",
+    "skill_description": "Method of distributing incoming network traffic across multiple servers to optimize resource use and maximize availability."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Software Testing",
+    "skill_description": "Systematic evaluation of software applications to ensure quality, performance, and conformance to specified requirements."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Unit Testing",
+    "skill_description": "Software testing practice where individual components or functions of source code are tested in isolation for correctness."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Integration Testing",
+    "skill_description": "Level of software testing where individual units or modules are combined and evaluated together as a group."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Selenium",
+    "skill_description": "Open-source automation framework used for validating and testing web applications across different browsers and platforms."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "JUnit",
+    "skill_description": "Programmer-oriented testing framework for Java focused on writing and running repeatable automated unit tests."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "PyTest",
+    "skill_description": "Robust, mature Python testing framework that facilitates writing simple, readable unit and functional test suites."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Agile",
+    "skill_description": "Iterative approach to project delivery that prioritizes flexibility, team collaboration, and rapid response to change."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Scrum",
+    "skill_description": "Agile framework facilitating team collaboration through structured sprints, daily standups, and defined delivery roles."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Project Management",
+    "skill_description": "Discipline of planning, executing, and monitoring projects to achieve specific goals within constraints."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Product Management",
+    "skill_description": "Strategic function guiding a product's lifecycle from vision and development through launch and iteration."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Business Analysis",
+    "skill_description": "Practice of identifying business needs, evaluating problems, and recommending effective organizational solutions."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Documentation",
+    "skill_description": "Creation and maintenance of clear, organized written records that describe processes, systems, and code."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Communication",
+    "skill_description": "Ability to convey information clearly and listen effectively across diverse audiences and mediums."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Presentation",
+    "skill_description": "Skill of delivering ideas, plans, and reports persuasively and effectively to audiences using visual aids."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Technical Writing",
+    "skill_description": "Drafting clear, detailed, and easily comprehensible documentation for complex technical concepts and processes."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Teamwork",
+    "skill_description": "Collaborative effort of working cooperatively with team members toward common organizational goals."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Leadership",
+    "skill_description": "Ability to guide, motivate, and empower individuals and teams toward shared vision and success."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Mentoring",
+    "skill_description": "Practice of guiding, supporting, and advising less experienced colleagues to foster their professional growth."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Stakeholder Management",
+    "skill_description": "Systematic identification, engagement, and alignment of expectations with key project stakeholders."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Negotiation",
+    "skill_description": "Discussion and compromise process aimed at reaching mutually beneficial agreements among differing parties."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Problem Solving",
+    "skill_description": "Analytical process of defining problems, identifying root causes, and implementing effective solutions."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Critical Thinking",
+    "skill_description": "Objective analysis and evaluation of facts, logic, and evidence to form reasoned judgments."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Adaptability",
+    "skill_description": "Capacity to adjust quickly and effectively to new conditions, changing priorities, and unforeseen challenges."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Time Management",
+    "skill_description": "Practice of organizing and planning how to divide time effectively between specific activities to optimize productivity."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Emotional Intelligence",
+    "skill_description": "Capability to recognize, understand, and constructively manage one's own emotions and interpersonal relationships."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Conflict Resolution",
+    "skill_description": "Process of facilitating the peaceful and constructive resolution of disputes and workplace disagreements."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Customer Focus",
+    "skill_description": "Commitment to understanding customer needs and consistently delivering high-quality value and satisfaction."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Decision Making",
+    "skill_description": "Process of evaluating alternatives and selecting the best course of action in a timely manner."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Creativity",
+    "skill_description": "Ability to generate original ideas, novel approaches, and innovative solutions to workplace challenges."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "C",
+    "skill_description": "Low-level procedural programming language providing direct hardware access and high execution speed."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Kotlin",
+    "skill_description": "Modern concise statically typed language fully interoperable with Java and standard for Android development."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Swift",
+    "skill_description": "Fast and safe programming language developed by Apple for iOS, macOS, and multi-platform app development."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Ruby",
+    "skill_description": "Dynamic, object-oriented programming language designed for programmer productivity and simplicity."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Scala",
+    "skill_description": "Scalable language combining functional and object-oriented programming paradigms on the JVM."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "R",
+    "skill_description": "Statistical computing language and graphical environment tailored for data analysis and modeling."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Bash",
+    "skill_description": "Unix command language and shell scripting environment for automated system administration and pipelines."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Dart",
+    "skill_description": "Client-optimized programming language developed by Google for building multi-platform applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Julia",
+    "skill_description": "High-level, high-performance dynamic programming language designed for numerical and scientific computing."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Lua",
+    "skill_description": "Powerful, efficient, lightweight embeddable scripting language widely used in games and middleware."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Next.js",
+    "skill_description": "Full-stack React framework enabling server-side rendering, static site generation, and optimized performance."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Nuxt.js",
+    "skill_description": "Intuitive Vue.js framework providing server-side rendering, routing conventions, and modern web tooling."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Svelte",
+    "skill_description": "Radical compile-time frontend framework generating highly efficient vanilla JavaScript without a virtual DOM."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "GraphQL",
+    "skill_description": "Open-source data query and manipulation language providing clients exact data specification for APIs."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "RESTful APIs",
+    "skill_description": "Architectural style for networked systems providing stateless communication over standard HTTP methods."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "WebSockets",
+    "skill_description": "Protocol providing full-duplex communication channels over a single TCP connection for real-time web apps."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Redux",
+    "skill_description": "Predictable state container library for JavaScript applications that centralizes state management."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Sass/SCSS",
+    "skill_description": "CSS preprocessor providing variables, nesting, mixins, and inheritance to maintain scalable stylesheets."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Webpack",
+    "skill_description": "Static module bundler for modern JavaScript applications that packages assets and dependencies."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Vite",
+    "skill_description": "Next-generation frontend tooling offering fast development server start and optimized production builds."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "React Native",
+    "skill_description": "Multi-platform mobile app framework using React to render native user interface components."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "WebAssembly",
+    "skill_description": "Binary instruction format enabling high-performance code execution in modern web browsers at near-native speed."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Apache Cassandra",
+    "skill_description": "Distributed NoSQL database management system designed to handle large amounts of data across servers."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "DynamoDB",
+    "skill_description": "Fully managed, serverless NoSQL key-value database service by AWS providing single-digit millisecond latency."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Couchbase",
+    "skill_description": "Distributed NoSQL document database engineered for enterprise cloud applications and sub-millisecond data caching."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Neo4j",
+    "skill_description": "High-performance graph database engine that stores and navigates connected data relationships natively."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Elasticsearch",
+    "skill_description": "Distributed RESTful search and analytics engine capable of addressing full-text search and log analytics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "SQLite",
+    "skill_description": "Self-contained, serverless, zero-configuration transactional SQL database engine embedded in client software."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Snowflake",
+    "skill_description": "Multi-cluster shared data architecture cloud data platform built for concurrent SQL analytics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "ClickHouse",
+    "skill_description": "Fast open-source column-oriented DBMS for real-time analytical reporting using SQL queries."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Cloud Spanner",
+    "skill_description": "Fully managed mission-critical relational database service on GCP combining ACID transactions with global scale."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Firestore",
+    "skill_description": "Serverless NoSQL document database built for automatic scaling, real-time sync, and mobile development."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Build",
+    "skill_description": "Serverless continuous integration and delivery platform on GCP that executes builds on cloud infrastructure."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Deploy",
+    "skill_description": "Managed continuous delivery service on GCP automating application deployment to GKE and Cloud Run."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud Armor",
+    "skill_description": "Enterprise web-application firewall and DDoS defense service protecting Google Cloud infrastructure."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud CDN",
+    "skill_description": "Low-latency global content delivery network on Google Cloud leveraging distributed edge locations."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud DNS",
+    "skill_description": "Resilient, low-latency authoritative Domain Name System hosting service running on Google infrastructure."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Secret Manager",
+    "skill_description": "Secure and convenient storage system for API keys, passwords, and sensitive configurations in GCP."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Cloud KMS",
+    "skill_description": "Cloud-hosted key management service allowing management of cryptographic keys for GCP workloads."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Azure DevOps",
+    "skill_description": "Comprehensive toolset by Microsoft providing version control, CI/CD pipelines, and project boards."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "AWS CloudFormation",
+    "skill_description": "Infrastructure as code service to model, provision, and manage AWS and third-party resources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "OpenStack",
+    "skill_description": "Open-source cloud computing platform for building public and private infrastructure-as-a-service clouds."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "GitLab CI/CD",
+    "skill_description": "Integrated continuous delivery toolchain in GitLab for building, testing, and deploying software."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Helm",
+    "skill_description": "Package manager for Kubernetes that streamlines application deployment and version configuration."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Argo CD",
+    "skill_description": "Declarative GitOps continuous delivery tool tailored specifically for automated Kubernetes deployments."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Prometheus",
+    "skill_description": "Open-source monitoring and alerting toolkit with an active multidimensional time-series data model."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Grafana",
+    "skill_description": "Multi-platform analytics and interactive visualization web application for time-series infrastructure metrics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "OpenTelemetry",
+    "skill_description": "Vendor-neutral observability framework providing standardized APIs, SDKs, and tooling for telemetry."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "HashiCorp Vault",
+    "skill_description": "Tool for securely accessing secrets, tokens, passwords, and certificates via unified API workflows."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Nginx",
+    "skill_description": "High-performance web server, reverse proxy, load balancer, and HTTP cache for modern web infrastructure."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Sentry",
+    "skill_description": "Application monitoring platform providing real-time error tracking and performance debugging insights."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Chef",
+    "skill_description": "Automation platform that transforms infrastructure into code to ensure consistent server configurations."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Apache Spark",
+    "skill_description": "Unified multi-language engine for executing large-scale data analytics, streaming, and machine learning."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Apache Kafka",
+    "skill_description": "Distributed event store and stream-processing platform handling high-throughput real-time data feeds."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Apache Airflow",
+    "skill_description": "Platform created by the community to programmatically author, schedule, and monitor data workflows."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Apache Flink",
+    "skill_description": "Framework and distributed processing engine for stateful computations over data streams."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "dbt",
+    "skill_description": "Data transformation tool that enables data teams to build production-grade data pipelines using SQL."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Looker",
+    "skill_description": "Modern enterprise platform for business intelligence, data applications, and embedded analytics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Tableau",
+    "skill_description": "Visual analytics platform that empowers users to explore, visualize, and understand business data."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Apache Beam",
+    "skill_description": "Unified programming model for defining both batch and streaming data-parallel processing pipelines."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Databricks",
+    "skill_description": "Unified cloud lakehouse platform combining data engineering, data science, and machine learning."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Data Governance",
+    "skill_description": "Framework of processes, roles, policies, and standards ensuring effective and secure use of data assets."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Vector Databases",
+    "skill_description": "Specialized storage engines optimized for indexing, searching, and managing high-dimensional vector embeddings."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "LangChain",
+    "skill_description": "Open-source development framework designed to build context-aware applications powered by language models."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "LlamaIndex",
+    "skill_description": "Data framework designed to connect custom enterprise data sources to large language model applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Hugging Face Transformers",
+    "skill_description": "Library providing state-of-the-art pretrained machine learning models for text, vision, and audio tasks."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Model Fine-Tuning",
+    "skill_description": "Process of adapting pretrained foundation models on specialized datasets for targeted domain tasks."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "MLOps",
+    "skill_description": "Practice of deploying, managing, monitoring, and governing production machine learning models reliably."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Google Gemini API",
+    "skill_description": "Cloud API providing access to Google's multimodal foundation models for text, vision, and code processing."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Reinforcement Learning",
+    "skill_description": "Machine learning technique where agents learn optimal actions through trial-and-error rewards and penalties."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Weights & Biases",
+    "skill_description": "Developer platform for tracking machine learning experiments, hyperparameter tuning, and model registries."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Responsible AI",
+    "skill_description": "Practice of designing and deploying artificial intelligence systems that are fair, transparent, and safe."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Penetration Testing",
+    "skill_description": "Authorized simulated cyberattack against computer systems to evaluate security defenses and find flaws."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Vulnerability Management",
+    "skill_description": "Continuous process of identifying, evaluating, treating, and reporting on security vulnerabilities."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "SIEM",
+    "skill_description": "Security Information and Event Management systems that aggregate and analyze security log telemetry."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "SOC 2 Compliance",
+    "skill_description": "Auditing procedure ensuring service providers securely manage client data across security principles."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Threat Modeling",
+    "skill_description": "Structured approach to identifying, quantifying, and addressing potential application security threats."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Zero Trust Architecture",
+    "skill_description": "Security model requiring strict identity verification for every person and device accessing resources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Cryptography",
+    "skill_description": "Practice and study of techniques for securing communication and sensitive data using mathematical ciphers."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Data Loss Prevention",
+    "skill_description": "Strategy and tools designed to ensure sensitive data is not lost, misused, or accessed by unauthorized users."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "Firewalls",
+    "skill_description": "Network security devices that monitor and filter incoming and outgoing network traffic based on rules."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "VPN",
+    "skill_description": "Virtual Private Network technology establishing encrypted connections over less secure public networks."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "BGP",
+    "skill_description": "Border Gateway Protocol standard routing protocol used to exchange routing information across the internet."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "Subnetting",
+    "skill_description": "Practice of partitioning a single physical network into multiple logical subnetworks for efficiency."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "Reverse Proxy",
+    "skill_description": "Server that sits in front of web servers and forwards client requests, enhancing security and speed."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "Wireshark",
+    "skill_description": "Open-source packet analyzer used for network troubleshooting, analysis, and protocol education."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "SD-WAN",
+    "skill_description": "Software-Defined Wide Area Network managing network connections to connect users to applications safely."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Cypress",
+    "skill_description": "Next-generation frontend testing tool built for modern web applications supporting component and E2E tests."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Playwright",
+    "skill_description": "End-to-end testing framework by Microsoft that enables reliable cross-browser web automation."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Jest",
+    "skill_description": "Delightful JavaScript testing framework focused on simplicity and developer experience for web projects."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Postman",
+    "skill_description": "Collaborative API platform simplifying each step of the API lifecycle and automating endpoint testing."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Apache JMeter",
+    "skill_description": "Open-source software designed to load test functional behavior and measure performance of web servers."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Performance Testing",
+    "skill_description": "Software testing practice performed to determine how a system performs in terms of responsiveness and stability."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "End-to-End Testing",
+    "skill_description": "Methodology that validates complete software workflows from start to finish to ensure system flow integrity."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Test Automation",
+    "skill_description": "Use of specialized software tools to control test execution and compare actual outcomes to expected results."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Kanban",
+    "skill_description": "Visual workflow management method that helps teams visualize work, maximize efficiency, and improve flow."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Lean Thinking",
+    "skill_description": "Management philosophy focused on eliminating waste, continuous improvement, and delivering maximum value."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Product Strategy",
+    "skill_description": "Strategic plan outlining what a business aims to achieve with its product and how it plans to deliver it."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "User Story Mapping",
+    "skill_description": "Collaborative exercise that arranges user stories along the customer journey to plan product releases."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "OKRs",
+    "skill_description": "Objective and Key Results goal-setting framework for defining measurable goals and tracking outcomes."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Active Listening",
+    "skill_description": "Mindful practice of fully concentrating, understanding, responding, and remembering what is being said."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Public Speaking",
+    "skill_description": "Ability to speak effectively, articulately, and persuasively in front of a live audience or group."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Storytelling",
+    "skill_description": "Skill of using narrative structures and metaphors to explain complex concepts and inspire audiences."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Executive Communication",
+    "skill_description": "Tailoring complex information into clear, high-level, actionable summaries for senior leadership."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Feedback Delivery",
+    "skill_description": "Constructive and empathetic communication of performance observations to support growth and improvement."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Coaching",
+    "skill_description": "Partnering with individuals in a thought-provoking process to inspire them to maximize personal potential."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Delegation",
+    "skill_description": "Efficient assignment of responsibility and authority to team members while ensuring accountability."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Motivation",
+    "skill_description": "Inspiring and energizing team members to achieve organizational objectives and maintain high morale."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Influence Without Authority",
+    "skill_description": "Persuading and aligning colleagues and stakeholders across teams without relying on positional rank."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Strategic Thinking",
+    "skill_description": "Ability to assess external trends, anticipate future challenges, and formulate proactive organizational plans."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Prioritization",
+    "skill_description": "Skill of evaluating urgent versus important tasks to focus effort on highest-impact objectives."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Growth Mindset",
+    "skill_description": "Belief that abilities can be developed through dedication, hard work, learning, and constructive input."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Resilience",
+    "skill_description": "Capacity to withstand adversity, recover quickly from setbacks, and adapt to high-pressure situations."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Accountability",
+    "skill_description": "Willingness to accept personal ownership of decisions, actions, and project outcomes without excuses."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Continuous Learning",
+    "skill_description": "Ongoing self-motivated pursuit of knowledge and skill enhancement for personal and career growth."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Groovy",
+    "skill_description": "Agile dynamic language for the Apache JVM platform with seamless Java integration and concise syntax."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Perl",
+    "skill_description": "Highly capable, feature-rich programming language suitable for text manipulation and system administration."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "PowerShell",
+    "skill_description": "Task automation and configuration management framework with a command-line shell and scripting language."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Programming",
+    "category_id": 1,
+    "skillname": "Solidity",
+    "skill_description": "Statically-typed programming language designed for developing smart contracts on the Ethereum Virtual Machine."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "SvelteKit",
+    "skill_description": "Rapid framework for building robust, performant web applications using Svelte with filesystem routing."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "Tailwind CSS v4",
+    "skill_description": "Utility-first styling engine optimizing bundle size and build speed for modern frontend web applications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "WebAssembly (Wasm)",
+    "skill_description": "Low-level assembly-like language with compact binary format enabling near-native code execution in web browsers."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Web Development",
+    "category_id": 2,
+    "skillname": "gRPC",
+    "skill_description": "High-performance, open-source universal RPC framework developed by Google for low-latency microservice communications."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "AlloyDB for PostgreSQL",
+    "skill_description": "Fully managed PostgreSQL-compatible database service on GCP built for demanding enterprise transactional workloads."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "DuckDB",
+    "skill_description": "High-performance embedded analytical SQL database management system optimized for OLAP queries and local analytics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "OpenSearch",
+    "skill_description": "Community-driven, open-source search and analytics suite derived from Elasticsearch for full-text search and log analytics."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Databases",
+    "category_id": 3,
+    "skillname": "Neo4j Cypher",
+    "skill_description": "Declarative graph query language engineered for expressive and efficient querying of connected graph data structures."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Google Cloud Armor",
+    "skill_description": "Web application firewall and DDoS defense service designed to protect applications running on Google Cloud."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Google Cloud Run Jobs",
+    "skill_description": "Managed container execution service for running batch and scheduled workloads to completion without servers."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "AWS Fargate",
+    "skill_description": "Serverless, pay-as-you-go compute engine for containers compatible with Amazon ECS and Amazon EKS."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cloud Computing",
+    "category_id": 4,
+    "skillname": "Azure App Service",
+    "skill_description": "Fully managed platform for building, deploying, and scaling enterprise web apps and REST APIs on Microsoft Azure."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "OpenTofu",
+    "skill_description": "Open-source, community-driven fork of Terraform providing declarative infrastructure as code tooling."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Pulumi",
+    "skill_description": "Infrastructure as code platform enabling infrastructure provisioning using standard programming languages like TypeScript and Python."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Kustomize",
+    "skill_description": "Kubernetes configuration management tool that customizes untemplated YAML files declaratively without templates."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "DevOps",
+    "category_id": 5,
+    "skillname": "Podman",
+    "skill_description": "Daemonless container engine for developing, managing, and running OCI containers and pods on Linux systems."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Apache Iceberg",
+    "skill_description": "High-performance open table format for huge analytic datasets that brings SQL table semantics to data lakes."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Delta Lake",
+    "skill_description": "Open-source storage layer that brings ACID transactions, versioning, and reliability to Apache Spark and big data lakes."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Trino",
+    "skill_description": "Fast distributed SQL query engine designed to run interactive analytic queries against diverse data sources."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Data & Analytics",
+    "category_id": 6,
+    "skillname": "Great Expectations",
+    "skill_description": "Python library for validating, documenting, and profiling data pipelines to maintain enterprise data quality."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "LoRA & QLoRA",
+    "skill_description": "Parameter-efficient fine-tuning techniques enabling adaptation of large language models with minimal compute overhead."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "Semantic Kernel",
+    "skill_description": "Open-source SDK developed by Microsoft that integrates cutting-edge language models with conventional programming languages."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "CrewAI",
+    "skill_description": "Collaborative framework for orchestrating role-playing autonomous AI agent teams to solve complex workflows."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "AI & Machine Learning",
+    "category_id": 7,
+    "skillname": "AutoGen",
+    "skill_description": "Multi-agent conversational framework facilitating creation of cooperative AI agent workflows and task automation."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Cloud Security Posture Management (CSPM)",
+    "skill_description": "Automated monitoring of cloud environments to identify misconfigurations and enforce compliance standards."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "API Security",
+    "skill_description": "Practices and tools focused on securing application programming interfaces against unauthorized access and attacks."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Cybersecurity",
+    "category_id": 8,
+    "skillname": "Software Supply Chain Security",
+    "skill_description": "Security practices and tooling including SBOM generation and signing to secure dependencies and builds."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "Service Mesh",
+    "skill_description": "Dedicated infrastructure layer using proxies to handle service-to-service communication, security, and observability."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Networking",
+    "category_id": 9,
+    "skillname": "WireGuard",
+    "skill_description": "Extremely simple, fast, and modern cryptographic VPN protocol designed for secure high-performance networking."
+  },
+  {
+    "skill_type": "Hard skills",
+    "category_name": "Testing",
+    "category_id": 10,
+    "skillname": "Vitest",
+    "skill_description": "Blazing-fast Vite-native unit and component test framework with native TypeScript and ESM support."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Scope Management",
+    "skill_description": "Practice of defining, controlling, and managing deliverables and boundaries to ensure project success."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Risk Management",
+    "skill_description": "Proactive identification, evaluation, and mitigation of potential project risks and uncertainties."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "Backlog Refinement",
+    "skill_description": "Collaborative team process of reviewing, estimating, and prioritizing upcoming user stories for development."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Project & Product",
+    "category_id": 11,
+    "skillname": "OKRs Setting",
+    "skill_description": "Defining ambitious, measurable organizational objectives and tracking their corresponding key results."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Business Writing",
+    "skill_description": "Drafting clear, professional emails, proposals, and business reports tailored to corporate stakeholders."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Cross-Cultural Communication",
+    "skill_description": "Interacting effectively and empathetically with colleagues and clients across diverse cultural backgrounds."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Visual Communication",
+    "skill_description": "Utilizing diagrams, charts, and visual frameworks to articulate complex concepts clearly to audiences."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Communication",
+    "category_id": 12,
+    "skillname": "Facilitation",
+    "skill_description": "Guiding collaborative discussions, workshops, and team retrospectives toward productive outcomes and consensus."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Change Management",
+    "skill_description": "Guiding and supporting teams through organizational transitions, process updates, and cultural transformations."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Talent Development",
+    "skill_description": "Identifying, cultivating, and supporting the continuous learning and career advancement of team members."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Consensus Building",
+    "skill_description": "Uniting diverse opinions and fostering team alignment around shared strategic objectives and solutions."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Leadership",
+    "category_id": 13,
+    "skillname": "Servant Leadership",
+    "skill_description": "Leadership philosophy focused on empowering, supporting, and elevating team members to maximize their potential."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Attention to Detail",
+    "skill_description": "Thoroughness and accuracy when accomplishing tasks to maintain exceptional quality standards."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Work Ethic",
+    "skill_description": "Dedication, diligence, and strong moral principles guiding daily professional conduct and productivity."
+  },
+  {
+    "skill_type": "Soft skills",
+    "category_name": "Professional Skills",
+    "category_id": 14,
+    "skillname": "Curiosity",
+    "skill_description": "Eagerness to explore new ideas, ask insightful questions, and continuously seek deeper understanding."
+  }
+]

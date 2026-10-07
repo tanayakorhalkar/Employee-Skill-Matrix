@@ -19,7 +19,8 @@ CREATE TABLE Employee (
     created_on TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     updated_on TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     last_logged_in TIMESTAMPTZ,
-    roles VARCHAR(50) NOT NULL CHECK (roles IN ('SUPER_ADMIN', 'MANAGER', 'EMPLOYEE'))
+    roles VARCHAR(50) NOT NULL CHECK (roles IN ('SUPER_ADMIN', 'MANAGER', 'EMPLOYEE')),
+    profile_picture TEXT
 );
 
 CREATE INDEX idx_employee_login ON Employee(LOWER("Login_userid"));
@@ -32,7 +33,7 @@ CREATE TABLE Skills (
     category_name VARCHAR(100) NOT NULL,
     category_id INT NOT NULL,
     skillname VARCHAR(100) NOT NULL,
-    skill_description TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+    skill_description TEXT NOT NULL DEFAULT ''
 );
 
 CREATE INDEX idx_skills_type ON Skills(skill_type);

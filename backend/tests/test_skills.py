@@ -20,11 +20,12 @@ def test_admin_create_skill(client):
             "category_name": "Cloud Platforms",
             "category_id": 102,
             "skillname": "Google Cloud Run",
+            "skill_description": "Managed platform for deploying containerized applications.",
         }
     )
     assert res.status_code == 201
     assert res.json()["skillname"] == "Google Cloud Run"
-    assert "skill_description" in res.json()
+    assert res.json()["skill_description"] == "Managed platform for deploying containerized applications."
 
 def test_employee_cannot_create_skill(client):
     login_res = client.post("/api/auth/login", json={"Login_userid": "emp1", "password": "Emp@123"})

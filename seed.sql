@@ -3,7 +3,7 @@
 -- Default Passwords:
 --   Super Admin (tanaya / admin): Admin@123
 --   Manager (manager):            Manager@123
---   Employees (emp1 / emp2 / etc): Emp@123
+--   Employees (firstname.lastname@evonence.com): Emp@123
 -- =====================================================================
 
 -- 1. Seed Employees
@@ -14,12 +14,12 @@
 INSERT INTO Employee (emp_id, "fName", "lName", "Login_userid", "Login_password", is_active, created_on, updated_on, last_logged_in, roles)
 VALUES
 (1, 'Evonence', 'Admin', 'admin', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'SUPER_ADMIN'),
-(2, 'Sarah', 'Connor', 'manager', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'MANAGER'),
-(3, 'John', 'Doe', 'emp1', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE'),
-(4, 'Jane', 'Smith', 'emp2', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE'),
-(5, 'Alex', 'Rivera', 'emp3', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE'),
-(6, 'Priya', 'Patel', 'emp4', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE'),
-(7, 'Tanaya', 'Korhalkar', 'tanaya', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'SUPER_ADMIN')
+(2, 'Sanket', 'Dantkale', 'manager', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'MANAGER'),
+(3, 'Tanaya', 'Korhalkar', 'tanaya.korhalkar@evonence.com', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE'),
+(4, 'Ayush', 'Joshi', 'ayush.joshi@evonence.com', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE'),
+(5, 'Siddhesh', 'Bhor', 'siddhesh.bhor@evonence.com', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE'),
+(6, 'Tanaya', 'Korhalkar', 'superadmin@evonence.com', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'SUPER_ADMIN'),
+(7, 'Vivek', 'Dabhade', 'vivek.dabhade@evonence.com', '$2a$10$fVfSjQW1VqQ4xPv7P8Z8e.1XyNq2D2e1hF2J2r2s2t2u2v2w2x2y2', TRUE, NOW(), NOW(), NOW(), 'EMPLOYEE')
 ON CONFLICT (emp_id) DO NOTHING;
 
 SELECT setval('employee_emp_id_seq', (SELECT MAX(emp_id) FROM Employee));
@@ -68,10 +68,10 @@ VALUES
 (15, 11, 5, 4.5, 'Terraform IaC modules for cloud infrastructure provisioning.', TRUE, NOW()),
 (16, 1, 5, 3.5, 'Automation scripts and CI/CD tooling.', TRUE, NOW()),
 (17, 1, 6, 4.0, 'Data modeling, REST API development, testing.', TRUE, NOW()),
-(18, 12, 6, 5.0, 'PostgreSQL database administration, replication, query tuning.', TRUE, NOW()),
-(19, 13, 6, 4.0, 'Redis caching layer and pub/sub pipelines.', TRUE, NOW()),
-(20, 16, 6, 4.0, 'Led sprint delivery and roadmap planning across 2 cross-functional squads.', TRUE, NOW()),
-(21, 17, 6, 5.0, 'Mentored 4 junior engineers in agile practices and code review standards.', TRUE, NOW())
+(18, 12, 7, 5.0, 'PostgreSQL database administration, replication, query tuning.', TRUE, NOW()),
+(19, 13, 7, 4.0, 'Redis caching layer and pub/sub pipelines.', TRUE, NOW()),
+(20, 16, 7, 4.0, 'Led sprint delivery and roadmap planning across 2 cross-functional squads.', TRUE, NOW()),
+(21, 17, 7, 5.0, 'Mentored 4 junior engineers in agile practices and code review standards.', TRUE, NOW())
 ON CONFLICT (unique_id) DO NOTHING;
 
 SELECT setval('employee_skills_unique_id_seq', (SELECT MAX(unique_id) FROM Employee_skills));

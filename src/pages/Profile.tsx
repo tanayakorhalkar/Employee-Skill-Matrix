@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { User, Shield, CheckCircle2, Lock } from 'lucide-react';
+import { User, Shield, CheckCircle2, Lock, Camera, Trash2 } from 'lucide-react';
 import { SafeEmployee } from '../types/database';
+import { EmployeeAvatar } from '../components/EmployeeAvatar';
 
 interface ProfileProps {
   currentUser: SafeEmployee;
-  onUpdateProfile: (data: { fName?: string; lName?: string; password?: string }) => Promise<void>;
+  onUpdateProfile: (data: {
+    fName?: string;
+    lName?: string;
+    password?: string;
+    profile_picture?: string | null;
+  }) => Promise<void>;
 }
 
 export const Profile: React.FC<ProfileProps> = ({ currentUser, onUpdateProfile }) => {
@@ -12,8 +18,37 @@ export const Profile: React.FC<ProfileProps> = ({ currentUser, onUpdateProfile }
   const [lName, setLName] = useState(currentUser.lName);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [profilePicture, setProfilePicture] = useState<string | null>(currentUser.profile_picture);
+  const [pictureChanged, setPictureChanged] = useState(false);
+  const [pictureError, setPictureError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
+
+  const handlePictureSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    if (!['image/png', 'image/jpeg', 'image/webp'].includes(file.type)) {
+      setPictureError('Choose a PNG, JPEG, or WebP image.');
+      return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      setPictureError('Profile pictures must be smaller than 2 MB.');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result !== 'string') {
+        setPictureError('Could not read the selected image.');
+        return;
+      }
+      setProfilePicture(reader.result);
+      setPictureChanged(true);
+      setPictureError(null);
+    };
+    reader.onerror = () => setPictureError('Could not read the selected image.');
+    reader.readAsDataURL(file);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,11 +63,13 @@ export const Profile: React.FC<ProfileProps> = ({ currentUser, onUpdateProfile }
         fName: fName.trim(),
         lName: lName.trim(),
         password: newPassword.trim() ? newPassword : undefined,
+        ...(pictureChanged ? { profile_picture: profilePicture } : {}),
       });
       setToastMsg('Profile updated successfully!');
       setTimeout(() => setToastMsg(null), 4000);
       setNewPassword('');
       setConfirmPassword('');
+      setPictureChanged(false);
     } catch (err: unknown) {
       alert(err instanceof Error ? err.message : 'Failed to update profile.');
     } finally {
@@ -51,10 +88,12 @@ export const Profile: React.FC<ProfileProps> = ({ currentUser, onUpdateProfile }
 
       {/* Profile Overview Card */}
       <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-xs flex flex-col sm:flex-row items-center gap-6">
-        <div className="w-20 h-20 rounded-full bg-[#0B3A5B] text-white flex items-center justify-center font-bold text-2xl uppercase shadow-md shrink-0">
-          {currentUser.fName[0]}
-          {currentUser.lName[0]}
-        </div>
+        <EmployeeAvatar
+          firstName={currentUser.fName}
+          lastName={currentUser.lName}
+          profilePicture={profilePicture}
+          className="w-20 h-20 text-2xl shadow-md shrink-0"
+        />
 
         <div className="flex-1 text-center sm:text-left space-y-1">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
@@ -82,11 +121,52 @@ export const Profile: React.FC<ProfileProps> = ({ currentUser, onUpdateProfile }
             <span>Account Details & Profile Settings</span>
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">
-            Update personal name or change your login password.
+            Update your profile picture and personal details or change your login password.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <div className="flex items-center gap-3">
+              <EmployeeAvatar
+                firstName={fName || currentUser.fName}
+                lastName={lName || currentUser.lName}
+                profilePicture={profilePicture}
+                className="w-16 h-16 text-lg shrink-0"
+              />
+              <div>
+                <div className="font-semibold text-slate-800">Profile Picture</div>
+                <div className="text-[11px] text-slate-500">PNG, JPEG, or WebP · up to 2 MB</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 sm:ml-auto">
+              <label className="inline-flex items-center gap-1.5 cursor-pointer rounded-lg border border-slate-300 bg-white px-3 py-2 font-semibold text-slate-700 hover:bg-slate-100">
+                <Camera className="w-3.5 h-3.5" />
+                Choose Picture
+                <input
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp"
+                  onChange={handlePictureSelected}
+                  className="sr-only"
+                />
+              </label>
+              {profilePicture && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setProfilePicture(null);
+                    setPictureChanged(true);
+                    setPictureError(null);
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-red-200 bg-white px-3 py-2 font-semibold text-red-700 hover:bg-red-50"
+                >
+                  <Trash2 className="w-3.5 h-3.5" /> Remove
+                </button>
+              )}
+            </div>
+            {pictureError && <p className="text-xs text-red-700 sm:basis-full">{pictureError}</p>}
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-semibold text-slate-700 mb-1">First Name (fName)</label>

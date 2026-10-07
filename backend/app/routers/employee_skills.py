@@ -11,10 +11,41 @@ from app.schemas.employee_skill import (
     EmployeeSkillCreate,
     EmployeeSkillUpdate,
     ManagerReviewAction,
+    ManagerBatchReviewAction,
     EmployeeSkillResponse,
 )
 
 router = APIRouter(prefix="/employee-skills", tags=["Employee Skills"])
+
+
+def _is_pending_review(record: EmployeeSkill) -> bool:
+    if not record.is_active:
+        return False
+
+    comments = (record.comments or "").strip()
+    first_line = comments.splitlines()[0].strip() if comments else ""
+    if first_line.startswith("[Pending manager approval"):
+        return True
+
+    return not any(
+        marker in comments
+        for marker in ("[Approved by", "[Rejected by", "[Rating adjusted to")
+    )
+
+
+def _pending_submission_comments(
+    comments: Optional[str],
+    history: Optional[str],
+    submitted_at: datetime,
+) -> str:
+    submitted_at_str = submitted_at.strftime("%Y-%m-%d %H:%M UTC")
+    submission = f"[Pending manager approval submitted on {submitted_at_str}]"
+    if comments and comments.strip():
+        submission += f"\n{comments.strip()}"
+    if history and history.strip() and history.strip() != (comments or "").strip():
+        submission += f"\n\n[Previous submission and review history]\n{history.strip()}"
+    return submission
+
 
 @router.get("", response_model=List[EmployeeSkillResponse])
 def list_employee_skills(
@@ -90,8 +121,16 @@ def create_or_update_employee_skill(
 
     if existing:
         existing.self_rating = es_in.self_rating
-        existing.comments = es_in.comments if es_in.comments is not None else existing.comments
-        if es_in.is_active is not None:
+        if current_user.roles == "EMPLOYEE":
+            existing.comments = _pending_submission_comments(
+                es_in.comments if es_in.comments is not None else existing.comments,
+                existing.comments if es_in.comments is not None else None,
+                now,
+            )
+            existing.is_active = True
+        else:
+            existing.comments = es_in.comments if es_in.comments is not None else existing.comments
+        if current_user.roles != "EMPLOYEE" and es_in.is_active is not None:
             existing.is_active = es_in.is_active
         existing.add_update_timestamp = now
         db.commit()
@@ -102,8 +141,12 @@ def create_or_update_employee_skill(
             skill_id=es_in.skill_id,
             emp_id=target_emp_id,
             self_rating=es_in.self_rating,
-            comments=es_in.comments,
-            is_active=es_in.is_active if es_in.is_active is not None else True,
+            comments=(
+                _pending_submission_comments(es_in.comments, None, now)
+                if current_user.roles == "EMPLOYEE"
+                else es_in.comments
+            ),
+            is_active=True if current_user.roles == "EMPLOYEE" else (es_in.is_active if es_in.is_active is not None else True),
             add_update_timestamp=now,
         )
         db.add(new_record)
@@ -132,7 +175,15 @@ def update_employee_skill(
     if es_in.is_active is not None:
         record.is_active = es_in.is_active
 
-    record.add_update_timestamp = datetime.now(timezone.utc)
+    now = datetime.now(timezone.utc)
+    if current_user.roles == "EMPLOYEE":
+        record.comments = _pending_submission_comments(
+            es_in.comments if es_in.comments is not None else record.comments,
+            record.comments if es_in.comments is not None else None,
+            now,
+        )
+        record.is_active = True
+    record.add_update_timestamp = now
     db.commit()
     db.refresh(record)
     return record
@@ -149,6 +200,17 @@ def review_employee_skill(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Record not found.")
 
     action = review_in.action
+    if action == "REJECT" and not (review_in.manager_notes or "").strip():
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="A rejection reason is required.",
+        )
+    if action == "EDIT" and review_in.reviewed_rating is None:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="A reviewed rating is required when editing a skill submission.",
+        )
+
     now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     reviewer_name = f"{reviewer.fName} {reviewer.lName}"
 
@@ -171,7 +233,7 @@ def review_employee_skill(
     elif action == "EDIT":
         if review_in.reviewed_rating is not None:
             record.self_rating = review_in.reviewed_rating
-        note = f"[Rating adjusted to {record.self_rating}/5 by {reviewer_name} on {now_str}]"
+        note = f"[Approved by {reviewer_name} on {now_str}; rating adjusted to {record.self_rating}/5]"
         if review_in.manager_notes:
             note += f" - Note: {review_in.manager_notes}"
         record.comments = f"{note}\n{base_comments}".strip()
@@ -185,9 +247,67 @@ def review_employee_skill(
         "message": f"Skill submission successfully {action.lower()}d.",
         "unique_id": record.unique_id,
         "is_active": record.is_active,
-        "self_rating": record.self_rating,
+        "self_rating": float(record.self_rating),
         "comments": record.comments,
     }
+
+
+@router.post("/{emp_id}/review-batch", response_model=dict)
+def review_employee_skill_batch(
+    emp_id: int,
+    review_in: ManagerBatchReviewAction,
+    db: Session = Depends(get_db),
+    reviewer: Employee = Depends(require_roles(["MANAGER", "SUPER_ADMIN"])),
+):
+    employee = db.query(Employee).filter(Employee.emp_id == emp_id).first()
+    if not employee:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Employee not found.")
+
+    pending_records = (
+        db.query(EmployeeSkill)
+        .filter(EmployeeSkill.emp_id == emp_id)
+        .with_for_update()
+        .all()
+    )
+    pending_records = [record for record in pending_records if _is_pending_review(record)]
+    if not pending_records:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="This employee has no pending skill submissions to review.",
+        )
+    if review_in.action == "REJECT" and not (review_in.manager_notes or "").strip():
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="A rejection reason is required.",
+        )
+
+    now = datetime.now(timezone.utc)
+    now_str = now.strftime("%Y-%m-%d %H:%M UTC")
+    reviewer_name = f"{reviewer.fName} {reviewer.lName}"
+    for record in pending_records:
+        base_comments = record.comments or ""
+        if review_in.action == "APPROVE":
+            note = f"[Approved by {reviewer_name} on {now_str}]"
+            if review_in.manager_notes:
+                note += f" - {review_in.manager_notes}"
+            record.is_active = True
+        else:
+            note = f"[Rejected by {reviewer_name} on {now_str}]"
+            if review_in.manager_notes:
+                note += f" - Reason: {review_in.manager_notes.strip()}"
+            record.is_active = False
+        record.comments = f"{note}\n{base_comments}".strip()
+        record.add_update_timestamp = now
+
+    db.commit()
+    return {
+        "message": f"{len(pending_records)} skill submission(s) successfully {review_in.action.lower()}d.",
+        "emp_id": emp_id,
+        "action": review_in.action,
+        "count": len(pending_records),
+        "unique_ids": [record.unique_id for record in pending_records],
+    }
+
 
 @router.delete("/{unique_id}", status_code=status.HTTP_200_OK)
 def delete_employee_skill(

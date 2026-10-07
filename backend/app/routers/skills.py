@@ -1,5 +1,4 @@
 from typing import List, Optional
-from datetime import datetime, timezone
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.core.dependencies import get_current_user, require_roles
@@ -54,7 +53,7 @@ def create_skill(
         category_name=skill_in.category_name,
         category_id=skill_in.category_id,
         skillname=skill_in.skillname,
-        skill_description=datetime.now(timezone.utc),  # schema mandates TIMESTAMP
+        skill_description=skill_in.skill_description,
     )
     db.add(new_skill)
     db.commit()
@@ -80,6 +79,8 @@ def update_skill(
         skill.category_id = skill_in.category_id
     if skill_in.skillname is not None:
         skill.skillname = skill_in.skillname
+    if skill_in.skill_description is not None:
+        skill.skill_description = skill_in.skill_description
 
     db.commit()
     db.refresh(skill)

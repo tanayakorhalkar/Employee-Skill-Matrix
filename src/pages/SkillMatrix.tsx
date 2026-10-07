@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Search, Filter, Briefcase, Info, X } from 'lucide-react';
 import { SafeEmployee, Skill, EmployeeSkillJoined } from '../types/database';
 import { getProficiencyLabel, getRatingColors, RatingBadge } from '../components/RatingBadge';
+import { EmployeeAvatar } from '../components/EmployeeAvatar';
 
 interface SkillMatrixProps {
   employees: SafeEmployee[];
@@ -310,10 +311,12 @@ export const SkillMatrix: React.FC<SkillMatrixProps> = ({
                       {/* Fixed Left Column (Engineer Name) */}
                       <td className="p-3 sticky left-0 z-10 bg-inherit border-r border-slate-200 font-semibold text-slate-900 shadow-xs">
                         <div className="flex items-center gap-2">
-                          <div className="w-7 h-7 rounded-full bg-[#1769AA] text-white flex items-center justify-center font-bold text-[11px] shrink-0">
-                            {emp.fName[0]}
-                            {emp.lName[0]}
-                          </div>
+                          <EmployeeAvatar
+                            firstName={emp.fName}
+                            lastName={emp.lName}
+                            profilePicture={emp.profile_picture}
+                            className="w-7 h-7 text-[11px] shrink-0"
+                          />
                           <div className="truncate">
                             <div className="truncate">
                               {emp.fName} {emp.lName}

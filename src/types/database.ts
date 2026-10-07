@@ -20,6 +20,7 @@ export interface Employee {
   updated_on: string; // ISO TIMESTAMP
   last_logged_in: string | null; // ISO TIMESTAMP
   roles: UserRole;
+  profile_picture: string | null;
 }
 
 export type SafeEmployee = Omit<Employee, 'Login_password'>;
@@ -30,7 +31,7 @@ export interface Skill {
   category_name: string;
   category_id: number;
   skillname: string;
-  skill_description: string; // TIMESTAMP column per schema specification
+  skill_description: string;
 }
 
 export interface EmployeeSkill {

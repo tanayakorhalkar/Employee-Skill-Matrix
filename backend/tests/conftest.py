@@ -1,6 +1,5 @@
 import os
 import pytest
-from datetime import datetime, timezone
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -68,7 +67,7 @@ def db_session():
         category_name="Programming Languages",
         category_id=101,
         skillname="Python",
-        skill_description=datetime.now(timezone.utc),
+        skill_description="General-purpose programming language",
     )
     session.add(skill)
     session.commit()
